@@ -149,7 +149,7 @@ button { font: inherit; cursor: pointer; }
   pointer-events: none;
 }
 .hero-waves .js-svg { display: block; width: 100%; height: 100%; }
-.hero-waves .a__line { fill: none; stroke: var(--text-on-cream); stroke-width: 0.5px; opacity: 0.12; }
+.hero-waves .a__line { fill: none; stroke: var(--text-on-cream); stroke-width: 0.6px; opacity: 0.22; }
 .hero-content { position: relative; z-index: 1; width: 100%; }
 .hero-eyebrow {
   font-family: var(--font-mono);

@@ -163,8 +163,8 @@ class AWaves extends HTMLElement {
       points.forEach((p) => {
         const move =
           noise.perlin2((p.x + time * 0.0125) * 0.002, (p.y + time * 0.005) * 0.0015) * 12;
-        p.wave.x = Math.cos(move) * 32;
-        p.wave.y = Math.sin(move) * 16;
+        p.wave.x = Math.cos(move) * 40;
+        p.wave.y = Math.sin(move) * 22;
 
         const dx = p.x - mouse.sx;
         const dy = p.y - mouse.sy;
