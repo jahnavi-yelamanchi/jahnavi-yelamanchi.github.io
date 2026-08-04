@@ -1,0 +1,182 @@
+[
+  {
+    "id": "intro",
+    "q": "Who is Jahnavi?",
+    "text": "Jahnavi Yelamanchi is a generalist across agent infrastructure, ML systems, and inference optimization. She's currently a Software Engineer at Eminent Services Corporation, and an ML Infrastructure Engineer at NYU CILVR working on ML infra and foundational models."
+  },
+  {
+    "id": "thesis",
+    "q": "What's her thesis about?",
+    "text": "Jahnavi's Master's thesis is 'Visuo-Tactile World Models for Dexterous Manipulation: From Simulation Benchmarks to Real-World Skin Sensing', New York University, 2026, building world models that fuse touch and vision for robot manipulation."
+  },
+  {
+    "id": "education-nyu",
+    "q": "Where does she go to grad school?",
+    "text": "Jahnavi is pursuing a Master's in Computer Engineering at New York University (Aug 2024 - May 2026), GPA 3.83/4.0. Coursework: Machine Learning, Computer Vision, Reinforcement Learning, Hardware Accelerator Design."
+  },
+  {
+    "id": "education-vit",
+    "q": "Where did she do her undergrad?",
+    "text": "Jahnavi holds a Bachelor's in Computer Science Engineering from Vellore Institute of Technology (Sept 2020 - June 2024), GPA 3.97/4.0. She was a visiting student at the National University of Singapore, Dec 2022 - May 2023."
+  },
+  {
+    "id": "work-current-job",
+    "q": "What is she working on right now?",
+    "text": "Jahnavi's current job is Software Engineer at Eminent Services Corporation (July 2026 - Present, remote): testing IDMS product workflows and backend integrations, identifying functional defects, and working with developers on root-cause analysis and fixes."
+  },
+  {
+    "id": "work-cilvr",
+    "q": "What does she do at NYU CILVR?",
+    "text": "At NYU CILVR (Generalizable Robotics and AI Lab), April 2025 - April 2026, Jahnavi works as a Machine Learning & Robotics Researcher: developing tactile-centric world models with AnySkin sensors and video for robot reorientation tasks in LIBERO, designing a custom push-to-align manipulation task with latent-space modeling for RL, building tactile/proprioceptive data pipelines, and deploying robotics workloads via Singularity with Tailscale-based remote access for off-site experiments."
+  },
+  {
+    "id": "work-sai-lab",
+    "q": "What did she work on at the SAI Lab?",
+    "text": "At the System & Artificial Intelligence Lab (NYU), Oct 2024 - April 2025, Jahnavi worked as an ML Systems & Inference Researcher: reduced Efficient-VAR inference latency 17% on NVIDIA A100s using Triton kernels and memory-path profiling, built a non-invasive instrumentation framework for top-k/top-p/CFG tradeoffs, shipped transfer-learning pipelines across 3 research projects, and orchestrated multi-node GPU experiments on Slurm."
+  },
+  {
+    "id": "work-tata-steel",
+    "q": "What did she do at Tata Steel?",
+    "text": "As a Machine Learning Intern at Tata Steel (Jan-May 2024), Jahnavi built a generative AI system for automated steel surface defect detection, including a GAN-based data generation pipeline that lifted rare-class recall by 28%, and containerized the training-to-inference pipeline with Docker and GitHub Actions."
+  },
+  {
+    "id": "work-samsung",
+    "q": "What did she do at Samsung?",
+    "text": "As a Research Intern at Samsung R&D Institute India (Jul-Dec 2023), Jahnavi optimized CNN/RNN architectures for under-10ms mobile inference via quantization and pruning, and designed a multitask learning framework unifying object detection, audio classification, and IMU processing."
+  },
+  {
+    "id": "work-hpe",
+    "q": "What did she do at HPE?",
+    "text": "As a Data Science Intern at Hewlett Packard Enterprise (Dec 2022-Jan 2023), Jahnavi trained multilingual text classifiers (93% accuracy on 11k+ samples) and deployed distributed training pipelines on Azure ML with hyperparameter tuning and A/B testing infrastructure."
+  },
+  {
+    "id": "teaching",
+    "q": "Has she taught any courses?",
+    "text": "Jahnavi has taught as a Student Instructor for CSE1006 Blockchain and Cryptocurrency Technologies (Winter 2023) and CSE4001 Parallel and Distributed Computing (Fall 2023) at VIT."
+  },
+  {
+    "id": "oss-deepspeed",
+    "q": "Has she contributed to DeepSpeed?",
+    "text": "Jahnavi is an open-source contributor to Microsoft DeepSpeed: added input validation and regression tests for distributed checkpointing and schedulers, and built optimization-pass contracts and schedule validation for DeepCompile."
+  },
+  {
+    "id": "oss-vllm",
+    "q": "Has she contributed to vLLM?",
+    "text": "Jahnavi contributed to vLLM: root-caused and patched an out-of-bounds memory read in a Triton MoE kernel that was causing a CUDA illegal memory access, and built a regression test suite resolving 12 of 60 failing cases."
+  },
+  {
+    "id": "oss-lerobot",
+    "q": "Has she contributed to LeRobot?",
+    "text": "Jahnavi contributed to HuggingFace LeRobot: added a task-prompt configuration option to RoboCasa's eval environment to fix a natural-language/CamelCase mismatch, plus unit tests for the new eval option."
+  },
+  {
+    "id": "projects-summary",
+    "q": "What has she built?",
+    "text": "Jahnavi has built about eleven personal systems projects, mostly around ML infrastructure and inference: a production shadow-evaluation service, a real-time collaborative whiteboard, an AI incident-remediation platform, PII redaction and support-ticket classifiers served with optimized inference, an LLM inference-backend benchmark, a video-clip ranker, a text-to-SQL copilot, a fused Triton attention kernel, a vLLM serving optimization, and an INT8 speech-quantization pipeline."
+  },
+  {
+    "id": "project-shadoweval",
+    "q": "Tell me about Shadow Eval",
+    "text": "Shadow Eval is a production shadow-evaluation service (Python, FastAPI, SQLite, Docker) that replays live requests against candidate models without affecting users, with blinded pairwise evaluation, statistical regression gates, PII redaction, and cost tracking. It correctly flagged an injected regression across 80 paired evaluations at a one-sided p-value of 8.27×10⁻²⁵."
+  },
+  {
+    "id": "project-livecanvas",
+    "q": "Tell me about LiveCanvas",
+    "text": "LiveCanvas is a self-hosted real-time collaborative whiteboard (TypeScript, React, Node.js, Yjs, Redis, PostgreSQL, Docker) with CRDT-synced drawing, cursors and presence, offline edits persisted via IndexedDB and auto-merged on reconnect, load-balanced across Node.js replicas behind Nginx."
+  },
+  {
+    "id": "project-aegis",
+    "q": "Tell me about Aegis",
+    "text": "Aegis is an incident-remediation platform (Next.js, Fastify, pgvector, Temporal, OpenAI, Kubernetes) that ingests signals from 4 sources with hybrid pgvector + OpenAI embeddings and runs human-gated remediation workflows that execute scoped Kubernetes actions with full audit trails."
+  },
+  {
+    "id": "project-privatetext",
+    "q": "Tell me about PrivateText",
+    "text": "PrivateText is a PII-redaction service (PyTorch, Torch-TensorRT, FastAPI, Modal): a fine-tuned classifier compiled with Torch-TensorRT FP16, cutting P50 latency 4.7x at 90.1% F1, deployed on Modal serving character-accurate entity spans."
+  },
+  {
+    "id": "project-triage",
+    "q": "Tell me about Triage",
+    "text": "Triage is a support-ticket priority classifier (PyTorch, ONNX Runtime, FastAPI, Modal): fine-tuned then quantized to INT8 ONNX, cutting latency from 32.75ms to 17.15ms, achieving 53.3% macro F1 on 6,000+ class-imbalanced tickets."
+  },
+  {
+    "id": "project-inferencebench",
+    "q": "Tell me about InferenceBench",
+    "text": "InferenceBench is a benchmarking harness (Python, Transformers, vLLM, SGLang, TensorRT-LLM) comparing LLM inference backends under matched model, prompt, and hardware conditions, with an interactive dashboard normalizing latency, throughput, and memory across five backends."
+  },
+  {
+    "id": "project-cutdown",
+    "q": "Tell me about Cutdown",
+    "text": "Cutdown is a multimodal video-clip ranker (FastAPI, Next.js, FFmpeg, PyTorch) combining transcript scoring, frozen embeddings, and a trainable ranker head, with a full upload-to-export pipeline evaluated against human-rated highlight clips."
+  },
+  {
+    "id": "project-askmydb",
+    "q": "Tell me about AskMyDB",
+    "text": "AskMyDB is a natural-language SQL analytics copilot (FastAPI, OpenAI, PostgreSQL, React, Docker) using OpenAI function calling with read-only SELECT validation, hitting 93% accuracy, auto-rendering charts, containerized via Docker Compose and deployed on Railway."
+  },
+  {
+    "id": "project-forge",
+    "q": "Tell me about Forge",
+    "text": "Forge fuses GPT-2 attention kernels with Triton (PyTorch, Triton, CUDA, NVIDIA A100), delivering a 1.83x forward-pass speedup and 2x memory bandwidth, profiled with NVIDIA NCU to improve kernel pipelining, prefetch stages, and SRAM reuse."
+  },
+  {
+    "id": "project-surge",
+    "q": "Tell me about Surge",
+    "text": "Surge extends vLLM's paged-attention serving for Llama-3-8B (Python, vLLM, CUDA, Kubernetes), increasing throughput 2.4x at 100ms p99 latency by optimizing in-flight batching and KV-cache eviction under bursty single-GPU load."
+  },
+  {
+    "id": "project-squelch",
+    "q": "Tell me about Squelch",
+    "text": "Squelch applies post-training INT8 quantization to Whisper-small speech recognition via TensorRT (Python, PyTorch, TensorRT, ONNX), cutting latency 2.7x at only 0.3 WER degradation, profiled with NVIDIA Nsight to remove throughput regressions."
+  },
+  {
+    "id": "pub-csf-gan",
+    "q": "What is her CSF pressure paper about?",
+    "text": "Publication: Jahnavi co-authored a paper predicting cerebrospinal fluid (CSF) pressure with a GAN-based model on plasma biomarkers, published in Neuroinformatics (2025): 'Prediction of CSF Pressure with Generative Adversarial Network Synthetic Plasma-CSF Biomarker Pairing.'"
+  },
+  {
+    "id": "pub-anime-gan",
+    "q": "What is her anime GAN paper about?",
+    "text": "Publication: Jahnavi is first author on a paper comparing GAN models (DCGAN, ProGAN, StyleGAN2) for anime face synthesis, published in the Multidisciplinary Science Journal (2025). StyleGAN2 performed best."
+  },
+  {
+    "id": "pub-neuro-ai",
+    "q": "What is her neuro-AI paper about?",
+    "text": "Publication: Jahnavi co-authored a review paper on AI-based diagnosis (diffusion MRI and PET imaging) for neurodegenerative and neuro-ophthalmic disease, published in Brain Sciences (2024)."
+  },
+  {
+    "id": "skills-languages",
+    "q": "What languages does she code in?",
+    "text": "Programming languages Jahnavi uses: Python, C/C++, CUDA, SQL, TypeScript, Bash, MATLAB."
+  },
+  {
+    "id": "skills-ml",
+    "q": "What ML frameworks does she use?",
+    "text": "Machine learning and deep learning tools Jahnavi uses: PyTorch, JAX, TensorFlow, scikit-learn, OpenCV, RAG, LangChain, LangGraph. The RAG/LangChain/LangGraph stack ties into her applied AI and agentic systems work."
+  },
+  {
+    "id": "skills-inference",
+    "q": "What does she use for inference optimization?",
+    "text": "For inference and model optimization, Jahnavi works with Triton, TensorRT, vLLM, and KV-cache / paged-attention techniques, her core ML systems and inference-optimization toolkit."
+  },
+  {
+    "id": "skills-infra",
+    "q": "What's her infrastructure stack?",
+    "text": "Jahnavi's backend and infrastructure stack: FastAPI, REST APIs, Node.js, AWS, GCP, Azure ML, Docker, Kubernetes, CI/CD, PostgreSQL, pgvector, MongoDB, Pinecone."
+  },
+  {
+    "id": "skills-robotics",
+    "q": "What robotics simulators does she use?",
+    "text": "Jahnavi's robotics simulators and RL tools: ROS, the MuJoCo simulator, the Robosuite simulation framework, IsaacSim, and Stable-Baselines3."
+  },
+  {
+    "id": "contact",
+    "q": "How can I reach her?",
+    "text": "The fastest way to reach Jahnavi is by email at jahnavi.applc@gmail.com. Her CV, GitHub, LinkedIn, and Google Scholar are linked at the top and bottom of this page. She's always happy to talk robotics, ML systems, or inference optimization."
+  },
+  {
+    "id": "how-it-works",
+    "q": "How does this chat work?",
+    "text": "This chat runs entirely in your browser using transformers.js and a small quantized sentence-embedding model (all-MiniLM-L6-v2), blended with a keyword-overlap check for accuracy. It embeds your question, compares it against a hand-written knowledge base about Jahnavi, and returns the closest match. No server, no API key, and no data ever leaves your device. The model downloads once (~25MB) and is cached after that."
+  }
+]
