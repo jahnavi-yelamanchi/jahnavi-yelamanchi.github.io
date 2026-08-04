@@ -84,6 +84,13 @@ class AWaves extends HTMLElement {
     this.onResize = this.onResize.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
     window.addEventListener("resize", this.onResize);
+    // The very first getBoundingClientRect() can race webfont/layout
+    // loading on a real network (fine on localhost, flaky over the wire),
+    // so re-measure whenever the host's actual box size changes.
+    if (window.ResizeObserver) {
+      this.resizeObserver = new ResizeObserver(() => this.onResize());
+      this.resizeObserver.observe(this);
+    }
     if (!this.reduceMotion) {
       window.addEventListener("mousemove", this.onMouseMove);
       requestAnimationFrame(this.tick.bind(this));
