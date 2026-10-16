@@ -1,673 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jahnavi Yelamanchi</title>
-  <meta name="author" content="Jahnavi Yelamanchi">
-  <meta name="description" content="Jahnavi Yelamanchi, ML Systems & Inference Engineer working on inference optimization, applied AI, and agentic systems, plus robotics and world models research at NYU CILVR.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <noscript><style>.reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }</style></noscript>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jahnavi Yelamanchi — Between models and machines</title>
+<meta name="description" content="Jahnavi Yelamanchi: ML systems and research engineering. Multimodal learning, hands-on robotics, GPU systems, and the work connecting them.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{}</script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <nav class="nav" id="nav">
-    <a class="nav-brand" href="#top">JAHNAVI YELAMANCHI</a>
-    <div class="nav-links">
-      <a href="#playground">Ask My AI</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#open-source">OSS</a>
-      <a href="#publications">Publications</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <main id="top">
-
-    <!-- ===== HERO / ABOUT ===== -->
-    <section class="hero">
-      <a-waves class="hero-waves" aria-hidden="true"><svg class="js-svg"></svg></a-waves>
-      <div class="wrap hero-content">
-        <div class="hero-eyebrow">ML Infrastructure Engineer · NYU CILVR</div>
-        <h1 class="hero-title">I build <em>ML systems and agent infrastructure</em> that take AI from notebook to production.</h1>
-        <div class="hero-sub">
-          <p>ML infrastructure and foundational model research at NYU CILVR.</p>
-          <p>Before that: ML systems &amp; inference research at NYU's SAI Lab.</p>
-          <p>M.S. in Computer Engineering from NYU.</p>
-        </div>
-        <div class="hero-cta">
-          <a class="btn-primary" href="#playground">Ask my AI anything</a>
-          <a class="btn-secondary" href="#projects">See my work</a>
-          <div class="hero-icons">
-            <a href="https://github.com/jahnavi-yelamanchi/" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/jahnaviym" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="mailto:jahnavi.applc@gmail.com" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="hero-meta">
-          <span>inference &rarr; agents &rarr; production &middot; ML systems</span>
-          <span><strong>M.S. CompE</strong> &middot; NYU '26</span>
-          <span>prev &middot; SAI Lab, NYU</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ASK MY AI (2nd) ===== -->
-    <section class="section section--dark grid-bg" id="playground">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 01 ) Playground</span>
-          <span class="label">Ask My AI</span>
-        </div>
-        <p class="reveal" style="max-width:56ch;color:var(--text-on-ink-soft);font-size:16px">
-          A small chat that knows my background, research, projects, and publications. It runs a
-          sentence-embedding model entirely in your browser to find the most relevant answer:
-          no server, no API key, nothing about your questions ever leaves your device.
-        </p>
-
-        <div class="playground reveal" id="playground-box">
-          <div class="playground-bar">
-            <span>ask-my-ai.local</span>
-            <span id="modelStatus">Model not loaded</span>
-          </div>
-          <div class="playground-body">
-            <div class="chat-log" id="chatLog">
-              <div class="chat-msg ai">Hi, I'm a small model trained on nothing but Jahnavi's background. Ask me something below, or tap a suggestion.</div>
-            </div>
-            <div class="chips" id="chips">
-              <button class="chip" type="button" data-q="What is she working on right now?">What is she working on right now?</button>
-              <button class="chip" type="button" data-q="What has she built?">What has she built?</button>
-              <button class="chip" type="button" data-q="What's her thesis about?">What's her thesis about?</button>
-              <button class="chip" type="button" data-q="How can I reach her?">How can I reach her?</button>
-            </div>
-            <form class="chat-form" id="chatForm">
-              <input class="chat-input" id="chatInput" type="text" placeholder="Ask about my research, projects, or background…" autocomplete="off">
-              <button class="chat-submit" id="chatSubmit" type="submit">Ask</button>
-            </form>
-          </div>
-        </div>
-        <div class="playground-note">Runs entirely in your browser via transformers.js. The first question downloads a small embedding model (~25MB, cached after).</div>
-      </div>
-    </section>
-
-    <!-- ===== FOCUS AREAS ===== -->
-    <section class="section section--dark grid-bg" id="focus">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 02 ) Focus Areas</span>
-          <span class="label">MK-SIG · What I Work On</span>
-        </div>
-        <p class="reveal" style="max-width:56ch;font-size:18px;color:var(--text-on-ink-soft)">
-          ML systems and inference optimization first, with applied AI and agentic systems,
-          plus robotics and world models research, rounding things out.
-        </p>
-        <div class="pillars reveal-stagger reveal">
-          <div class="pillar">
-            <span class="idx">01 · INFERENCE</span>
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 26V14M14 26V6M22 26V18M26 26V10"/></svg>
-            <h3>Inference optimization &amp; ML systems</h3>
-          </div>
-          <div class="pillar">
-            <span class="idx">02 · AGENTS</span>
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="10" r="5"/><path d="M6 28c0-6 4-10 10-10s10 4 10 10"/></svg>
-            <h3>Applied AI &amp; agentic systems</h3>
-          </div>
-          <div class="pillar">
-            <span class="idx">03 · WORLD MODELS</span>
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="6" width="20" height="20"/><path d="M6 14h20M14 6v20"/></svg>
-            <h3>World models &amp; robotics</h3>
-          </div>
-          <div class="pillar">
-            <span class="idx">04 · PERCEPTION</span>
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 16s6-9 14-9 14 9 14 9-6 9-14 9-14-9-14-9Z"/><circle cx="16" cy="16" r="4"/></svg>
-            <h3>Perception &amp; multimodal learning</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PROJECTS ===== -->
-    <section class="section" id="projects">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 03 ) Projects</span>
-          <span class="label">11 Builds</span>
-        </div>
-        <div class="projects-grid">
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/shadoweval" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 10h20M6 16h20M6 22h12"/><circle cx="24" cy="22" r="3"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">Shadow Eval</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Production shadow-evaluation service replaying live requests against candidates without affecting users</li>
-                <li>Blinded pairwise evaluation, statistical regression gates, PII redaction, and cost tracking; flagged an injected regression across 80 paired evaluations at p = 8.27×10⁻²⁵</li>
-              </ul>
-              <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Docker</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/livecanvas" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="16" r="9"/><circle cx="20" cy="16" r="9"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">LiveCanvas</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Self-hosted real-time collaborative whiteboard, drawing/cursors/presence synced via Yjs CRDTs</li>
-                <li>Offline edits persisted to IndexedDB, auto-merging on reconnect across Redis-backed replicas</li>
-              </ul>
-              <div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Yjs</span><span class="tag">Redis</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/incident-intelligence-platform" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 4 26 8v8c0 7-5 11-10 13-5-2-10-6-10-13V8Z"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">Aegis</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Incident-remediation platform ingesting signals from 4 sources via hybrid pgvector + OpenAI embeddings</li>
-                <li>Human-gated remediation workflows via Temporal, executing scoped Kubernetes actions with full audit trails</li>
-              </ul>
-              <div class="tags"><span class="tag">Next.js</span><span class="tag">Fastify</span><span class="tag">pgvector</span><span class="tag">Temporal</span><span class="tag">OpenAI</span><span class="tag">Kubernetes</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/private-text" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 16s6-9 14-9 14 9 14 9-6 9-14 9-14-9-14-9Z"/><path d="M6 8l20 16"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">PrivateText</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Fine-tuned PII-redaction classifier compiled with Torch-TensorRT FP16, cutting P50 latency 4.7x at 90.1% F1</li>
-                <li>Deployed on Modal, serving character-accurate entity spans in production</li>
-              </ul>
-              <div class="tags"><span class="tag">PyTorch</span><span class="tag">Torch-TensorRT</span><span class="tag">FastAPI</span><span class="tag">Modal</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/ticket-priority-classifier" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h24l-9 11v9l-6-3v-6Z"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">Triage</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Fine-tuned ticket-priority classifier, quantized to INT8 ONNX, cutting latency 32.75ms → 17.15ms</li>
-                <li>FastAPI microservice on Modal, 53.3% macro F1 on 6,000+ class-imbalanced tickets</li>
-              </ul>
-              <div class="tags"><span class="tag">PyTorch</span><span class="tag">ONNX Runtime</span><span class="tag">FastAPI</span><span class="tag">Modal</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/llm-inference-playground" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 26V14M14 26V6M22 26V18M26 26V10"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">InferenceBench</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Benchmarking harness comparing vLLM, SGLang, TensorRT-LLM under matched conditions</li>
-                <li>Normalizes latency, throughput, and memory across five backends into an interactive dashboard</li>
-              </ul>
-              <div class="tags"><span class="tag">Python</span><span class="tag">vLLM</span><span class="tag">SGLang</span><span class="tag">TensorRT-LLM</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/cutdown" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="8" width="24" height="16" rx="2"/><path d="M13 12l8 4-8 4Z"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">Cutdown</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Multimodal video-clip ranker combining transcript scoring, frozen embeddings, and a trainable ranker head</li>
-                <li>Full FastAPI + Next.js upload-to-export pipeline evaluated against human-rated highlight clips</li>
-              </ul>
-              <div class="tags"><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">FFmpeg</span><span class="tag">PyTorch</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/askmydb" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="16" cy="8" rx="10" ry="4"/><path d="M6 8v16c0 2 4 4 10 4s10-2 10-4V8"/><path d="M6 16c0 2 4 4 10 4s10-2 10-4"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">AskMyDB</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Text-to-SQL copilot using OpenAI function calling with read-only SELECT validation, 93% accuracy</li>
-                <li>Dockerized FastAPI + React + Postgres, auto-rendering charts, deployed on Railway</li>
-              </ul>
-              <div class="tags"><span class="tag">FastAPI</span><span class="tag">OpenAI</span><span class="tag">PostgreSQL</span><span class="tag">React</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/forge" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M18 2 6 18h8l-2 12 14-18h-9Z"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">Forge</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Fused GPT-2 attention kernels in Triton, delivering 1.83x forward-pass speedup and 2x memory bandwidth</li>
-                <li>Profiled with NVIDIA NCU to improve pipelining, prefetch stages, and SRAM reuse</li>
-              </ul>
-              <div class="tags"><span class="tag">Triton</span><span class="tag">CUDA</span><span class="tag">PyTorch</span><span class="tag">A100</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/surge" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 22V10M12 22V6M18 22V14M24 22V9M28 22V16"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">Surge</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Extended vLLM's paged-attention serving for Llama-3-8B, increasing throughput 2.4x at 100ms p99 latency</li>
-                <li>Optimized in-flight batching and KV-cache eviction under bursty single-GPU load</li>
-              </ul>
-              <div class="tags"><span class="tag">vLLM</span><span class="tag">CUDA</span><span class="tag">Kubernetes</span></div>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://github.com/jahnavi-yelamanchi/int8_quant" target="_blank" rel="noopener">
-            <div class="project-cover">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 18h4l3-8 4 16 4-12 3 4h6"/></svg>
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <span class="project-title">Squelch</span>
-                <span class="project-links">Code ↗</span>
-              </div>
-              <ul class="project-desc">
-                <li>Post-training INT8 quantization on Whisper-small via TensorRT, cutting latency 2.7x at 0.3 WER degradation</li>
-                <li>Profiled memory bandwidth and SM occupancy with NVIDIA Nsight to remove throughput regressions</li>
-              </ul>
-              <div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorRT</span><span class="tag">ONNX</span></div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== EXPERIENCE ===== -->
-    <section class="section section--dark grid-bg" id="experience">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 04 ) Experience</span>
-          <span class="label">Spec Sheet</span>
-        </div>
-        <div class="timeline reveal">
-          <div class="tl-row">
-            <div class="tl-when">Jul 2026 – Present</div>
-            <div>
-              <div class="tl-role">Software Engineer · Eminent Services Corporation</div>
-              <div class="tl-org">Remote, USA</div>
-              <ul class="tl-bullets">
-                <li>Tested IDMS product workflows and backend integrations, identifying functional defects across production features</li>
-                <li>Collaborated with developers to reproduce failures, document findings, and support root-cause analysis and fixes</li>
-              </ul>
-              <div class="tl-tags"><span class="tag">QA</span><span class="tag">Backend</span></div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-when">Apr 2025 – Apr 2026</div>
-            <div>
-              <div class="tl-role">ML &amp; Robotics Researcher · NYU CILVR (GRAIL)</div>
-              <div class="tl-org">New York, NY</div>
-              <ul class="tl-bullets">
-                <li>Developed tactile-centric world models using AnySkin sensor + video for reorientation tasks in LIBERO</li>
-                <li>Designed a custom "push-to-align" block–cabinet task with full dynamics and latent-space modeling for RL</li>
-                <li>Built a tactile/proprioceptive data pipeline; fixed a temporal aggregation bug, improving held-out completion</li>
-                <li>Deployed robotics workloads via Singularity with Tailscale-based remote access, enabling off-site experiment execution</li>
-              </ul>
-              <div class="tl-tags"><span class="tag">PyTorch</span><span class="tag">MuJoCo</span><span class="tag">Robosuite</span><span class="tag">RL</span><span class="tag">Singularity</span></div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-when">Oct 2024 – Apr 2025</div>
-            <div>
-              <div class="tl-role">ML Systems &amp; Inference Researcher · System &amp; AI Lab (NYU)</div>
-              <div class="tl-org">New York, NY</div>
-              <ul class="tl-bullets">
-                <li>Reduced Efficient-VAR inference latency 17% on NVIDIA A100s via Triton kernels and memory-path profiling</li>
-                <li>Built a non-invasive instrumentation framework to visualize top-k / top-p / CFG tradeoffs</li>
-                <li>Shipped transfer-learning pipelines across 3 research projects; PostgreSQL experiment tracking cut logging overhead 35%</li>
-                <li>Orchestrated multi-node GPU experiments on Slurm, debugging training failures and scheduling overnight evaluations</li>
-              </ul>
-              <div class="tl-tags"><span class="tag">Triton</span><span class="tag">CUDA</span><span class="tag">PostgreSQL</span><span class="tag">Slurm</span></div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-when">Jan 2024 – May 2024</div>
-            <div>
-              <div class="tl-role">Machine Learning Intern · Tata Steel</div>
-              <div class="tl-org">Kolkata, India</div>
-              <ul class="tl-bullets">
-                <li>Built a generative AI system for automated steel surface defect detection</li>
-                <li>GAN-based data generation pipeline lifted rare-class recall by 28%; containerized training-to-inference with Docker + GitHub Actions</li>
-              </ul>
-              <div class="tl-tags"><span class="tag">GANs</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-when">Jul 2023 – Dec 2023</div>
-            <div>
-              <div class="tl-role">Research Intern · Samsung R&amp;D Institute India</div>
-              <div class="tl-org">Bangalore, India</div>
-              <ul class="tl-bullets">
-                <li>Optimized CNN/RNN architectures for &lt;10ms mobile inference via quantization and pruning</li>
-                <li>Built production pipelines syncing vision, audio, and sensor signals at sub-100ms end-to-end latency</li>
-              </ul>
-              <div class="tl-tags"><span class="tag">Quantization</span><span class="tag">Pruning</span><span class="tag">Mobile</span></div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-when">Dec 2022 – Jan 2023</div>
-            <div>
-              <div class="tl-role">Data Science Intern · Hewlett Packard Enterprise</div>
-              <div class="tl-org">Chennai, India</div>
-              <ul class="tl-bullets">
-                <li>Trained multilingual text classifiers on 11k+ samples (93% accuracy) with custom NLP pipelines</li>
-                <li>Deployed distributed training on Azure ML with hyperparameter tuning and A/B testing infrastructure</li>
-              </ul>
-              <div class="tl-tags"><span class="tag">NLP</span><span class="tag">Azure ML</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== OPEN SOURCE ===== -->
-    <section class="section" id="open-source">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 05 ) Open Source</span>
-          <span class="label">3 Contributions</span>
-        </div>
-        <div class="oss-list reveal">
-          <div class="oss-item">
-            <div class="oss-head">
-              <span class="oss-name"><a href="https://github.com/deepspeedai/DeepSpeed">DeepSpeed ↗</a></span>
-              <span class="oss-tags">Python · PyTorch · Distributed Systems</span>
-            </div>
-            <ul>
-              <li>Added input validation and regression tests for distributed checkpointing and schedulers, preventing runtime failures (<a href="https://github.com/deepspeedai/DeepSpeed/pull/8126">PR #8126</a>)</li>
-              <li>Built optimization-pass contracts and schedule validation for DeepCompile, detecting pre-execution conflicts (<a href="https://github.com/deepspeedai/DeepSpeed/pull/8139">PR #8139</a>)</li>
-            </ul>
-          </div>
-          <div class="oss-item">
-            <div class="oss-head">
-              <span class="oss-name"><a href="https://github.com/vllm-project/vllm">vLLM ↗</a></span>
-              <span class="oss-tags">Python · Triton · CUDA</span>
-            </div>
-            <ul>
-              <li>Root-caused and patched an out-of-bounds memory read in a Triton MoE kernel, resolving a CUDA illegal access (<a href="https://github.com/vllm-project/vllm/pull/48371">PR #48371</a>)</li>
-              <li>Developed a regression test suite, resolving 12/60 failing cases with up to 98% reference-implementation mismatch</li>
-            </ul>
-          </div>
-          <div class="oss-item">
-            <div class="oss-head">
-              <span class="oss-name"><a href="https://github.com/huggingface/lerobot">HuggingFace LeRobot ↗</a></span>
-              <span class="oss-tags">Python · PyTorch · Gym</span>
-            </div>
-            <ul>
-              <li>Added a task-prompt configuration option to RoboCasa's eval env, fixing a natural-language/CamelCase mismatch (<a href="https://github.com/huggingface/lerobot/pull/4073">PR #4073</a>)</li>
-              <li>Developed unit tests covering task-prompt selection and configuration validation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PUBLICATIONS ===== -->
-    <section class="section section--dark grid-bg" id="publications">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 06 ) Publications</span>
-          <span class="label">4 Entries</span>
-        </div>
-        <div class="pub-list">
-
-          <article class="pub reveal">
-            <div class="pub-thumb pub-thumb--text">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="6" width="20" height="20"/><path d="M6 14h20M14 6v20"/></svg>
-            </div>
-            <div>
-              <div class="pub-spec">MASTER'S THESIS · NEW YORK UNIVERSITY · 2026</div>
-              <a class="pub-title" href="https://www.proquest.com/openview/afca2ee55e6ee4220fe67b2dfab4122b/1?pq-origsite=gscholar&cbl=18750&diss=y">
-                Visuo-Tactile World Models for Dexterous Manipulation: From Simulation Benchmarks to Real-World Skin Sensing
-              </a>
-              <div class="pub-meta"><strong>Jahnavi Yelamanchi</strong></div>
-              <p class="pub-abstract">
-                Builds world models that fuse tactile (AnySkin) and visual signals for dexterous
-                robotic manipulation, evaluated across simulation benchmarks and real-world
-                skin-sensing setups.
-              </p>
-              <a class="pub-link" href="https://www.proquest.com/openview/afca2ee55e6ee4220fe67b2dfab4122b/1?pq-origsite=gscholar&cbl=18750&diss=y">Read Thesis →</a>
-            </div>
-          </article>
-
-          <article class="pub reveal">
-            <div class="pub-thumb">
-              <img src="images/csf-gan.png" alt="CSF-GAN figure">
-            </div>
-            <div>
-              <div class="pub-spec">FIG. 01 · NEUROINFORMATICS · VOL 23(3) · 2025</div>
-              <a class="pub-title" href="https://link.springer.com/article/10.1007/s12021-025-09729-2">
-                Prediction of Cerebrospinal Fluid (CSF) Pressure with Generative Adversarial Network Synthetic Plasma-CSF Biomarker Pairing
-              </a>
-              <div class="pub-meta">Phani Paladugu, Rahul Kumar, <strong>Jahnavi Yelamanchi</strong>, et al.</div>
-              <p class="pub-abstract">
-                Introduces a GAN-augmented ensemble model using plasma cfRNA to predict CSF pressure
-                non-invasively. Demonstrates high predictive accuracy and clinical relevance for ICP
-                monitoring in spaceflight and clinical contexts.
-              </p>
-              <a class="pub-link" href="data/csf-gan.pdf">Read Paper →</a>
-            </div>
-          </article>
-
-          <article class="pub reveal">
-            <div class="pub-thumb">
-              <img src="images/anime.png" alt="Anime face GAN figure">
-            </div>
-            <div>
-              <div class="pub-spec">FIG. 02 · MULTIDISCIPLINARY SCIENCE JOURNAL · VOL 7(3) · 2025</div>
-              <a class="pub-title" href="https://www.malque.pub/ojs/index.php/msj/article/view/3868">
-                Performance Evaluation of Generative Adversarial Networks for Anime Face Synthesis Using Deep Learning Approaches
-              </a>
-              <div class="pub-meta"><strong>Jahnavi Yelamanchi</strong>, Perepi Rajarajeswari, Redrowthu Vijaya Saraswathi, et al.</div>
-              <p class="pub-abstract">
-                Comparative study of GAN variants (DCGAN, ProGAN, StyleGAN2) for anime face synthesis.
-                StyleGAN2 demonstrated superior effectiveness, achieving the lowest FID score among
-                tested models.
-              </p>
-              <a class="pub-link" href="https://www.malque.pub/ojs/index.php/msj/article/view/3868">Read Paper →</a>
-            </div>
-          </article>
-
-          <article class="pub reveal">
-            <div class="pub-thumb">
-              <img src="images/neuro-img.png" alt="Neuro-ophthalmic AI figure">
-            </div>
-            <div>
-              <div class="pub-spec">FIG. 03 · BRAIN SCIENCES · VOL 14(12) · 2024</div>
-              <a class="pub-title" href="https://www.mdpi.com/2076-3425/14/12/1266">
-                Artificial Intelligence-Based Methodologies for Early Diagnostic Precision and Personalized Therapeutic Strategies in Neuro-Ophthalmic and Neurodegenerative Pathologies
-              </a>
-              <div class="pub-meta">Rahul Kumar, Ethan Waisberg, <strong>Jahnavi Yelamanchi</strong>, et al.</div>
-              <p class="pub-abstract">
-                Review highlighting the role of AI-enhanced diffusion MRI and PET imaging in early
-                diagnosis of neurodegenerative and neuro-ophthalmic disorders, integrating multimodal
-                data with deep learning models for improved precision.
-              </p>
-              <a class="pub-link" href="https://www.mdpi.com/2076-3425/14/12/1266">Read Paper →</a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== EDUCATION ===== -->
-    <section class="section" id="education">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 07 ) Education</span>
-          <span class="label">Transcript</span>
-        </div>
-        <div class="edu-grid reveal">
-          <div class="edu-card">
-            <div class="edu-school">New York University</div>
-            <div class="edu-degree">Master's in Computer Engineering · GPA 3.83/4.0</div>
-            <div class="edu-meta">Aug 2024 – May 2026</div>
-            <div class="edu-detail">
-              Coursework: ML, Computer Vision, Reinforcement Learning, Hardware Accelerator Design.
-              Thesis: Visuo-Tactile World Models for Dexterous Manipulation.
-            </div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-school">Vellore Institute of Technology</div>
-            <div class="edu-degree">Bachelor's in Computer Science Engineering · GPA 3.97/4.0</div>
-            <div class="edu-meta">Sept 2020 – June 2024</div>
-            <div class="edu-detail">
-              Visiting student at the National University of Singapore, Dec 2022 – May 2023.
-              Also taught as Student Instructor for CSE1006 (Blockchain &amp; Cryptocurrency
-              Technologies, Winter 2023) and CSE4001 (Parallel &amp; Distributed Computing, Fall 2023).
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SKILLS ===== -->
-    <section class="section section--dark grid-bg" id="skills">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 08 ) Skills</span>
-          <span class="label">Bill of Materials</span>
-        </div>
-        <div class="skills-grid reveal">
-          <div class="skill-group">
-            <h3>Inference &amp; Optimization</h3>
-            <div class="skill-tags"><span class="tag">Triton</span><span class="tag">TensorRT</span><span class="tag">vLLM</span><span class="tag">KV-cache</span><span class="tag">Paged Attention</span></div>
-          </div>
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <div class="skill-tags"><span class="tag">Python</span><span class="tag">C/C++</span><span class="tag">CUDA</span><span class="tag">SQL</span><span class="tag">TypeScript</span><span class="tag">Bash</span><span class="tag">MATLAB</span></div>
-          </div>
-          <div class="skill-group">
-            <h3>ML &amp; DL</h3>
-            <div class="skill-tags"><span class="tag">PyTorch</span><span class="tag">JAX</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">OpenCV</span><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">LangGraph</span></div>
-          </div>
-          <div class="skill-group">
-            <h3>Infrastructure &amp; Backend</h3>
-            <div class="skill-tags"><span class="tag">FastAPI</span><span class="tag">Node.js</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Azure ML</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">CI/CD</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">MongoDB</span><span class="tag">Pinecone</span></div>
-          </div>
-          <div class="skill-group">
-            <h3>Tools</h3>
-            <div class="skill-tags"><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Claude Code</span><span class="tag">Codex</span></div>
-          </div>
-          <div class="skill-group">
-            <h3>Robotics &amp; RL</h3>
-            <div class="skill-tags"><span class="tag">ROS</span><span class="tag">MuJoCo</span><span class="tag">Robosuite</span><span class="tag">IsaacSim</span><span class="tag">Stable-Baselines3</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section class="section" id="contact">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="label">( 09 ) Contact</span>
-          <span class="label">Request Access</span>
-        </div>
-        <div class="cta reveal">
-          <div class="cta-title">Let's talk ML systems, fast inference, or agentic AI.</div>
-          <p class="cta-sub">I'm always happy to chat about open roles, ML systems, research, or
-            anything in between. Reach out any time.</p>
-          <a class="cta-email" href="mailto:jahnavi.applc@gmail.com">Email Me →</a>
-          <div class="cta-links">
-            <a href="data/jahnavi_cv.pdf">CV</a>
-            <a href="https://github.com/jahnavi-yelamanchi/">GitHub</a>
-            <a href="https://www.linkedin.com/in/jahnaviym">LinkedIn</a>
-            <a href="https://scholar.google.com/citations?user=SkukPTgAAAAJ&hl=en">Google Scholar</a>
-            <a href="https://x.com/sugoi_loop">Twitter</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="section--dark grid-bg">
-      <div class="wrap footer">
-        <div class="footer-links">
-          <a href="mailto:jahnavi.applc@gmail.com">Email</a>
-          <a href="data/jahnavi_cv.pdf">CV</a>
-          <a href="https://github.com/jahnavi-yelamanchi/">GitHub</a>
-          <a href="https://www.linkedin.com/in/jahnaviym">LinkedIn</a>
-          <a href="https://scholar.google.com/citations?user=SkukPTgAAAAJ&hl=en">Google Scholar</a>
-          <a href="https://x.com/sugoi_loop">Twitter</a>
-        </div>
-        <div class="footer-credit">© 2026 Jahnavi Yelamanchi</div>
-      </div>
-    </footer>
-
-  </main>
-
-  <script src="js/waves.js"></script>
-  <script src="js/reveal.js"></script>
-  <script src="js/cursor.js"></script>
-  <script type="module" src="js/ask-ai.js"></script>
-</body>
-</html>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page-shell">
+<aside class="sidebar" aria-label="Introduction and navigation">
+ <div class="identity"><a class="name" href="#top">Jahnavi<br>Yelamanchi<span class="name-dot">.</span></a><p class="role">ML systems &amp; research engineering</p></div>
+ <p class="intro">I like understanding what happens between a model and the machine it runs on.</p>
+ <p class="intro-secondary">Learning from touch and video.<br>Working with robots and GPU clusters.<br>Following the interesting questions.</p>
+ <nav class="site-nav" aria-label="Main navigation">
+ <a href="#top" aria-current="location"><span>The map</span><span class="nav-mark">↗</span></a>
+ <a href="#projects"><span>Projects</span><span class="nav-mark">↗</span></a>
+ <a href="#experience"><span>Experience</span><span class="nav-mark">↗</span></a>
+ <a href="#open-source"><span>Open source</span><span class="nav-mark">↗</span></a>
+ <a href="#research"><span>Research</span><span class="nav-mark">↗</span></a>
+ <a href="#about"><span>About</span><span class="nav-mark">↗</span></a>
+ </nav>
+ <div class="sidebar-bottom"><div class="social-links"><a href="mailto:jahnavi.applc@gmail.com">Email ↗</a><a href="data/jahnavi_cv.pdf">Resume ↗</a><a href="https://github.com/jahnavi-yelamanchi/">GitHub ↗</a><a href="https://www.linkedin.com/in/jahnaviym">LinkedIn ↗</a></div>
+ <div class="theme-control" role="group" aria-label="Color theme"><button data-theme-choice="light" aria-pressed="true">Light</button><span>/</span><button data-theme-choice="dark" aria-pressed="false">Dark</button><span class="local-note">New York</span></div></div>
+</aside>
+<main id="main">
+<section class="atlas-section" id="top" aria-labelledby="map-title">
+ <header class="atlas-heading"><div><h1 id="map-title">A map of my work</h1><p>Different questions. Connected work.</p></div><a class="year-range mono" href="#about">2020 — 2026 ↘</a></header>
+ <div class="map-filters" role="group" aria-label="Filter map by type">
+ <button data-kind="all" aria-pressed="true">All work</button><button data-kind="experience" aria-pressed="false">Experience</button><button data-kind="project" aria-pressed="false">Projects</button><button data-kind="research" aria-pressed="false">Research</button><button data-kind="oss" aria-pressed="false">OSS</button><button data-kind="education" aria-pressed="false">Education</button>
+ </div>
+ <div class="map-stage" id="map-stage"><canvas id="work-map" aria-hidden="true"></canvas><div id="map-labels"></div><div class="map-axis-note mono">What holds, transforms,<br>moves, decides &amp; measures.</div><p class="map-fallback" hidden>The interactive drawing is unavailable. Explore the same work using the filters and record controls below.</p><noscript><p class="map-fallback">Enable JavaScript to explore the map. All work is available in the listings below.</p></noscript></div>
+ <div class="map-caption"><span id="map-context">Hover a cell to find the connections.</span><button id="reset-map" class="text-button">Reset view ↺</button></div>
+ <div class="year-filter" role="group" aria-label="Filter dated work by year"><button data-year="all" aria-pressed="true">All years</button><button data-year="2020" aria-pressed="false">2020</button><button data-year="2021" aria-pressed="false">2021</button><button data-year="2022" aria-pressed="false">2022</button><button data-year="2023" aria-pressed="false">2023</button><button data-year="2024" aria-pressed="false">2024</button><button data-year="2025" aria-pressed="false">2025</button><button data-year="2026" aria-pressed="false">2026</button></div>
+ <div class="evidence" id="evidence" aria-live="polite" aria-atomic="true">
+ <div class="evidence-copy"><div class="evidence-meta mono" id="evidence-meta">Experience · 2025–26</div><h2 id="evidence-title">Learning through touch &amp; vision</h2><p id="evidence-summary">World models, tactile data, and robotics experiments at NYU CILVR.</p><a id="evidence-link" href="#experience-cilvr">View experience ↗</a></div>
+ <div class="evidence-controls"><span id="evidence-count" class="mono"></span><div><button id="previous-record" aria-label="Previous record">←</button><button id="next-record" aria-label="Next record">→</button></div></div>
+ </div>
+ <div class="map-footnote"><span>Layers × roles. Select a cell; follow the evidence.</span><a href="#experience">The longer story ↓</a></div>
+</section>
+<section class="listing" id="projects" aria-labelledby="projects-title"><div class="section-heading"><h2 id="projects-title">Selected projects</h2><span class="mono">04 / 11</span></div><p class="section-intro">A few things I've built, from multimodal video to the kernels underneath.</p><article class="record project" id="project-cutdown">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>Cutdown</h3><p class="record-org"></p>
+ <ul><li>Multimodal video-clip ranker combining transcript scoring, frozen embeddings, and a trainable ranker head</li><li>Full FastAPI + Next.js upload-to-export pipeline evaluated against human-rated highlight clips</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/cutdown">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-cutdown">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">FastAPI · Next.js · FFmpeg · PyTorch</p></div></article><article class="record project" id="project-forge">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>Forge</h3><p class="record-org"></p>
+ <ul><li>Fused GPT-2 attention kernels in Triton, delivering 1.83x forward-pass speedup and 2x memory bandwidth</li><li>Profiled with NVIDIA NCU to improve pipelining, prefetch stages, and SRAM reuse</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/forge">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-forge">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Triton · CUDA · PyTorch · A100</p></div></article><article class="record project" id="project-inferencebench">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>InferenceBench</h3><p class="record-org"></p>
+ <ul><li>Benchmarking harness comparing vLLM, SGLang, TensorRT-LLM under matched conditions</li><li>Normalizes latency, throughput, and memory across five backends into an interactive dashboard</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/llm-inference-playground">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-inferencebench">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Python · vLLM · SGLang · TensorRT-LLM</p></div></article><article class="record project" id="project-aegis">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>Aegis</h3><p class="record-org"></p>
+ <ul><li>Incident-remediation platform ingesting signals from 4 sources via hybrid pgvector + OpenAI embeddings</li><li>Human-gated remediation workflows via Temporal, executing scoped Kubernetes actions with full audit trails</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/incident-intelligence-platform">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-aegis">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Next.js · Fastify · pgvector · Temporal · OpenAI · Kubernetes</p></div></article><details class="more-projects"><summary>Seven more experiments <span aria-hidden="true">+</span></summary><article class="record project" id="project-shadow-eval">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>Shadow Eval</h3><p class="record-org"></p>
+ <ul><li>Production shadow-evaluation service replaying live requests against candidates without affecting users</li><li>Blinded pairwise evaluation, statistical regression gates, PII redaction, and cost tracking; flagged an injected regression across 80 paired evaluations at p = 8.27×10⁻²⁵</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/shadoweval">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-shadow-eval">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Python · FastAPI · SQLite · Docker</p></div></article><article class="record project" id="project-livecanvas">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>LiveCanvas</h3><p class="record-org"></p>
+ <ul><li>Self-hosted real-time collaborative whiteboard, drawing/cursors/presence synced via Yjs CRDTs</li><li>Offline edits persisted to IndexedDB, auto-merging on reconnect across Redis-backed replicas</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/livecanvas">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-livecanvas">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">TypeScript · React · Yjs · Redis · PostgreSQL · Docker</p></div></article><article class="record project" id="project-privatetext">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>PrivateText</h3><p class="record-org"></p>
+ <ul><li>Fine-tuned PII-redaction classifier compiled with Torch-TensorRT FP16, cutting P50 latency 4.7x at 90.1% F1</li><li>Deployed on Modal, serving character-accurate entity spans in production</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/private-text">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-privatetext">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">PyTorch · Torch-TensorRT · FastAPI · Modal</p></div></article><article class="record project" id="project-triage">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>Triage</h3><p class="record-org"></p>
+ <ul><li>Fine-tuned ticket-priority classifier, quantized to INT8 ONNX, cutting latency 32.75ms → 17.15ms</li><li>FastAPI microservice on Modal, 53.3% macro F1 on 6,000+ class-imbalanced tickets</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/ticket-priority-classifier">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-triage">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">PyTorch · ONNX Runtime · FastAPI · Modal</p></div></article><article class="record project" id="project-askmydb">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>AskMyDB</h3><p class="record-org"></p>
+ <ul><li>Text-to-SQL copilot using OpenAI function calling with read-only SELECT validation, 93% accuracy</li><li>Dockerized FastAPI + React + Postgres, auto-rendering charts, deployed on Railway</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/askmydb">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-askmydb">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">FastAPI · OpenAI · PostgreSQL · React</p></div></article><article class="record project" id="project-surge">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>Surge</h3><p class="record-org"></p>
+ <ul><li>Extended vLLM&#x27;s paged-attention serving for Llama-3-8B, increasing throughput 2.4x at 100ms p99 latency</li><li>Optimized in-flight batching and KV-cache eviction under bursty single-GPU load</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/surge">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-surge">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">vLLM · CUDA · Kubernetes</p></div></article><article class="record project" id="project-squelch">
+ <div class="record-meta"><span>Independent project</span></div>
+ <div class="record-body"><h3>Squelch</h3><p class="record-org"></p>
+ <ul><li>Post-training INT8 quantization on Whisper-small via TensorRT, cutting latency 2.7x at 0.3 WER degradation</li><li>Profiled memory bandwidth and SM occupancy with NVIDIA Nsight to remove throughput regressions</li></ul>
+ <div class="record-links"><a href="https://github.com/jahnavi-yelamanchi/int8_quant">Code <span aria-hidden="true">↗</span></a><button class="map-link" data-record="project-squelch">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">PyTorch · TensorRT · ONNX</p></div></article></details></section><section class="listing" id="experience" aria-labelledby="experience-title"><div class="section-heading"><h2 id="experience-title">Experience</h2><span class="mono">06 entries</span></div><p class=section-intro>Research and applied work, from undergraduate study to hands-on robotics and ML systems.</p><article class="record experience" id="experience-eminent">
+ <div class="record-meta"><span>Jul 2026 – Present</span></div>
+ <div class="record-body"><h3>Software Engineer</h3><p class="record-org">Eminent Services Corporation</p>
+ <ul><li>Tested IDMS product workflows and backend integrations, identifying functional defects across production features</li><li>Collaborated with developers to reproduce failures, document findings, and support root-cause analysis and fixes</li></ul>
+ <div class="record-links"><button class="map-link" data-record="experience-eminent">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">QA · Backend</p></div></article><article class="record experience" id="experience-cilvr">
+ <div class="record-meta"><span>Apr 2025 – Apr 2026</span></div>
+ <div class="record-body"><h3>ML &amp; Robotics Researcher</h3><p class="record-org">NYU CILVR (GRAIL)</p>
+ <ul><li>Developed tactile-centric world models using AnySkin sensor + video for reorientation tasks in LIBERO</li><li>Designed a custom &quot;push-to-align&quot; block–cabinet task with full dynamics and latent-space modeling for RL</li><li>Built a tactile/proprioceptive data pipeline; fixed a temporal aggregation bug, improving held-out completion</li><li>Deployed robotics workloads via Singularity with Tailscale-based remote access, enabling off-site experiment execution</li></ul>
+ <div class="record-links"><button class="map-link" data-record="experience-cilvr">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">PyTorch · MuJoCo · Robosuite · RL · Singularity</p></div></article><article class="record experience" id="experience-sai">
+ <div class="record-meta"><span>Oct 2024 – Apr 2025</span></div>
+ <div class="record-body"><h3>ML Systems &amp; Inference Researcher</h3><p class="record-org">System &amp; AI Lab (NYU)</p>
+ <ul><li>Reduced Efficient-VAR inference latency 17% on NVIDIA A100s via Triton kernels and memory-path profiling</li><li>Built a non-invasive instrumentation framework to visualize top-k / top-p / CFG tradeoffs</li><li>Shipped transfer-learning pipelines across 3 research projects; PostgreSQL experiment tracking cut logging overhead 35%</li><li>Orchestrated multi-node GPU experiments on Slurm, debugging training failures and scheduling overnight evaluations</li></ul>
+ <div class="record-links"><button class="map-link" data-record="experience-sai">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Triton · CUDA · PostgreSQL · Slurm</p></div></article><article class="record experience" id="experience-tata">
+ <div class="record-meta"><span>Jan 2024 – May 2024</span></div>
+ <div class="record-body"><h3>Machine Learning Intern</h3><p class="record-org">Tata Steel</p>
+ <ul><li>Built a generative AI system for automated steel surface defect detection</li><li>GAN-based data generation pipeline lifted rare-class recall by 28%; containerized training-to-inference with Docker + GitHub Actions</li></ul>
+ <div class="record-links"><button class="map-link" data-record="experience-tata">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">GANs · Docker · CI/CD</p></div></article><article class="record experience" id="experience-samsung">
+ <div class="record-meta"><span>Jul 2023 – Dec 2023</span></div>
+ <div class="record-body"><h3>Research Intern</h3><p class="record-org">Samsung R&amp;D Institute India</p>
+ <ul><li>Optimized CNN/RNN architectures for &lt;10ms mobile inference via quantization and pruning</li><li>Built production pipelines syncing vision, audio, and sensor signals at sub-100ms end-to-end latency</li></ul>
+ <div class="record-links"><button class="map-link" data-record="experience-samsung">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Quantization · Pruning · Mobile</p></div></article><article class="record experience" id="experience-hpe">
+ <div class="record-meta"><span>Dec 2022 – Jan 2023</span></div>
+ <div class="record-body"><h3>Data Science Intern</h3><p class="record-org">Hewlett Packard Enterprise</p>
+ <ul><li>Trained multilingual text classifiers on 11k+ samples (93% accuracy) with custom NLP pipelines</li><li>Deployed distributed training on Azure ML with hyperparameter tuning and A/B testing infrastructure</li></ul>
+ <div class="record-links"><button class="map-link" data-record="experience-hpe">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">NLP · Azure ML</p></div></article></section><section class="listing" id="open-source" aria-labelledby="open-source-title"><div class="section-heading"><h2 id="open-source-title">Open source</h2><span class="mono">03 entries</span></div><p class=section-intro>Small changes in systems I care about. The pull requests tell the story.</p><article class="record oss" id="oss-deepspeed">
+ <div class="record-meta"><span>Pull requests</span></div>
+ <div class="record-body"><h3>DeepSpeed</h3><p class="record-org">Open-source contribution</p>
+ <ul><li>Added input validation and regression tests for distributed checkpointing and schedulers, preventing runtime failures (PR #8126)</li><li>Built optimization-pass contracts and schedule validation for DeepCompile, detecting pre-execution conflicts (PR #8139)</li></ul>
+ <div class="record-links"><a href="https://github.com/deepspeedai/DeepSpeed">DeepSpeed <span aria-hidden="true">↗</span></a><a href="https://github.com/deepspeedai/DeepSpeed/pull/8126">PR #8126 <span aria-hidden="true">↗</span></a><a href="https://github.com/deepspeedai/DeepSpeed/pull/8139">PR #8139 <span aria-hidden="true">↗</span></a><button class="map-link" data-record="oss-deepspeed">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Python · PyTorch · Distributed Systems</p></div></article><article class="record oss" id="oss-vllm">
+ <div class="record-meta"><span>Pull requests</span></div>
+ <div class="record-body"><h3>vLLM</h3><p class="record-org">Open-source contribution</p>
+ <ul><li>Root-caused and patched an out-of-bounds memory read in a Triton MoE kernel, resolving a CUDA illegal access (PR #48371)</li><li>Developed a regression test suite, resolving 12/60 failing cases with up to 98% reference-implementation mismatch</li></ul>
+ <div class="record-links"><a href="https://github.com/vllm-project/vllm">vLLM <span aria-hidden="true">↗</span></a><a href="https://github.com/vllm-project/vllm/pull/48371">PR #48371 <span aria-hidden="true">↗</span></a><button class="map-link" data-record="oss-vllm">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Python · Triton · CUDA</p></div></article><article class="record oss" id="oss-huggingface-lerobot">
+ <div class="record-meta"><span>Pull requests</span></div>
+ <div class="record-body"><h3>HuggingFace LeRobot</h3><p class="record-org">Open-source contribution</p>
+ <ul><li>Added a task-prompt configuration option to RoboCasa&#x27;s eval env, fixing a natural-language/CamelCase mismatch (PR #4073)</li><li>Developed unit tests covering task-prompt selection and configuration validation</li></ul>
+ <div class="record-links"><a href="https://github.com/huggingface/lerobot">HuggingFace LeRobot <span aria-hidden="true">↗</span></a><a href="https://github.com/huggingface/lerobot/pull/4073">PR #4073 <span aria-hidden="true">↗</span></a><button class="map-link" data-record="oss-huggingface-lerobot">Locate on map <span aria-hidden="true">↗</span></button></div>
+ <p class="record-tools">Python · PyTorch · Gym</p></div></article></section><section class="listing" id="research" aria-labelledby="research-title"><div class="section-heading"><h2 id="research-title">Publications & thesis</h2><span class="mono">04 entries</span></div><article class="record research" id="research-thesis">
+ <div class="record-meta"><span>2026</span></div>
+ <div class="record-body"><h3>Visuo-Tactile World Models for Dexterous Manipulation: From Simulation Benchmarks to Real-World Skin Sensing</h3><p class="record-org">MASTER&#x27;S THESIS · NEW YORK UNIVERSITY · 2026</p>
+ <p class="authors">Jahnavi Yelamanchi</p><p>Builds world models that fuse tactile (AnySkin) and visual signals for dexterous robotic manipulation, evaluated across simulation benchmarks and real-world skin-sensing setups.</p>
+ <div class="record-links"><a href="https://www.proquest.com/openview/afca2ee55e6ee4220fe67b2dfab4122b/1?pq-origsite=gscholar&amp;cbl=18750&amp;diss=y">Read Thesis <span aria-hidden="true">↗</span></a><button class="map-link" data-record="research-thesis">Locate on map <span aria-hidden="true">↗</span></button></div>
+ </div></article><article class="record research" id="research-csf">
+ <div class="record-meta"><span>2025</span><img class="paper-image" src="images/csf-gan.png" alt="Figure from Prediction of Cerebrospinal Fluid (CSF) Pressure with Generative Adversarial Network Synthetic Plasma-CSF Biomarker Pairing" loading="lazy" width="320" height="200"></div>
+ <div class="record-body"><h3>Prediction of Cerebrospinal Fluid (CSF) Pressure with Generative Adversarial Network Synthetic Plasma-CSF Biomarker Pairing</h3><p class="record-org">FIG. 01 · NEUROINFORMATICS · VOL 23(3) · 2025</p>
+ <p class="authors">Phani Paladugu, Rahul Kumar, Jahnavi Yelamanchi, et al.</p><p>Introduces a GAN-augmented ensemble model using plasma cfRNA to predict CSF pressure non-invasively. Demonstrates high predictive accuracy and clinical relevance for ICP monitoring in spaceflight and clinical contexts.</p>
+ <div class="record-links"><a href="data/csf-gan.pdf">Read Paper <span aria-hidden="true">↗</span></a><button class="map-link" data-record="research-csf">Locate on map <span aria-hidden="true">↗</span></button></div>
+ </div></article><article class="record research" id="research-gan">
+ <div class="record-meta"><span>2025</span><img class="paper-image" src="images/anime.png" alt="Figure from Performance Evaluation of Generative Adversarial Networks for Anime Face Synthesis Using Deep Learning Approaches" loading="lazy" width="320" height="200"></div>
+ <div class="record-body"><h3>Performance Evaluation of Generative Adversarial Networks for Anime Face Synthesis Using Deep Learning Approaches</h3><p class="record-org">FIG. 02 · MULTIDISCIPLINARY SCIENCE JOURNAL · VOL 7(3) · 2025</p>
+ <p class="authors">Jahnavi Yelamanchi, Perepi Rajarajeswari, Redrowthu Vijaya Saraswathi, et al.</p><p>Comparative study of GAN variants (DCGAN, ProGAN, StyleGAN2) for anime face synthesis. StyleGAN2 demonstrated superior effectiveness, achieving the lowest FID score among tested models.</p>
+ <div class="record-links"><a href="https://www.malque.pub/ojs/index.php/msj/article/view/3868">Read Paper <span aria-hidden="true">↗</span></a><button class="map-link" data-record="research-gan">Locate on map <span aria-hidden="true">↗</span></button></div>
+ </div></article><article class="record research" id="research-neuro">
+ <div class="record-meta"><span>2024</span><img class="paper-image" src="images/neuro-img.png" alt="Figure from Artificial Intelligence-Based Methodologies for Early Diagnostic Precision and Personalized Therapeutic Strategies in Neuro-Ophthalmic and Neurodegenerative Pathologies" loading="lazy" width="320" height="200"></div>
+ <div class="record-body"><h3>Artificial Intelligence-Based Methodologies for Early Diagnostic Precision and Personalized Therapeutic Strategies in Neuro-Ophthalmic and Neurodegenerative Pathologies</h3><p class="record-org">FIG. 03 · BRAIN SCIENCES · VOL 14(12) · 2024</p>
+ <p class="authors">Rahul Kumar, Ethan Waisberg, Jahnavi Yelamanchi, et al.</p><p>Review highlighting the role of AI-enhanced diffusion MRI and PET imaging in early diagnosis of neurodegenerative and neuro-ophthalmic disorders, integrating multimodal data with deep learning models for improved precision.</p>
+ <div class="record-links"><a href="https://www.mdpi.com/2076-3425/14/12/1266">Read Paper <span aria-hidden="true">↗</span></a><button class="map-link" data-record="research-neuro">Locate on map <span aria-hidden="true">↗</span></button></div>
+ </div></article></section>
+<section class="listing about" id="about" aria-labelledby="about-title"><div class="section-heading"><h2 id="about-title">A little more context</h2><span class="mono">2020 — 2026</span></div>
+<div class="about-intro"><img src="images/headshot.png" alt="Jahnavi by a pond in autumn" width="461" height="471" loading="lazy"><div><h3>Between models<br>and machines.</h3><p>I'm drawn to the parts of ML that meet the real world: a robot learning through touch, a model waiting on memory, an experiment that needs to run reliably.</p><p>Six years of computer science and computer engineering have taken me through research, applied ML, and the systems underneath. I like being able to follow the problem across those boundaries.</p><p>Right now, I'm digging further into how hardware shapes a model, how to understand what it learns, and how to keep agents useful over longer tasks.</p></div></div>
+<div class="education-list"><article class="record education" id="education-nyu">
+ <div class="record-meta"><span>Aug 2024 – May 2026</span></div>
+ <div class="record-body"><h3>New York University</h3><p class="record-org">Master&#x27;s in Computer Engineering · GPA 3.83/4.0</p>
+ <p>Coursework: ML, Computer Vision, Reinforcement Learning, Hardware Accelerator Design. Thesis: Visuo-Tactile World Models for Dexterous Manipulation.</p>
+ <div class="record-links"><button class="map-link" data-record="education-nyu">Locate on map <span aria-hidden="true">↗</span></button></div>
+ </div></article><article class="record education" id="education-vit">
+ <div class="record-meta"><span>Sept 2020 – June 2024</span></div>
+ <div class="record-body"><h3>Vellore Institute of Technology</h3><p class="record-org">Bachelor&#x27;s in Computer Science Engineering · GPA 3.97/4.0</p>
+ <p>Visiting student at the National University of Singapore, Dec 2022 – May 2023. Also taught as Student Instructor for CSE1006 (Blockchain &amp; Cryptocurrency Technologies, Winter 2023) and CSE4001 (Parallel &amp; Distributed Computing, Fall 2023).</p>
+ <div class="record-links"><button class="map-link" data-record="education-vit">Locate on map <span aria-hidden="true">↗</span></button></div>
+ </div></article></div>
+<details class="toolbox"><summary>Tools I work with <span aria-hidden="true">+</span></summary><div class="skills-grid"><div><h3>Inference &amp; Optimization</h3><p>Triton · TensorRT · vLLM · KV-cache · Paged Attention</p></div><div><h3>Languages</h3><p>Python · C/C++ · CUDA · SQL · TypeScript · Bash · MATLAB</p></div><div><h3>ML &amp; DL</h3><p>PyTorch · JAX · TensorFlow · scikit-learn · OpenCV · RAG · LangChain · LangGraph</p></div><div><h3>Infrastructure &amp; Backend</h3><p>FastAPI · Node.js · AWS · GCP · Azure ML · Docker · Kubernetes · CI/CD · PostgreSQL · pgvector · MongoDB · Pinecone</p></div><div><h3>Tools</h3><p>Git · Linux · Claude Code · Codex</p></div><div><h3>Robotics &amp; RL</h3><p>ROS · MuJoCo · Robosuite · IsaacSim · Stable-Baselines3</p></div></div></details>
+</section>
+<section class="listing contact" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Good problems.<br>Good people.</h2><p>I'm interested in ML engineering and research roles, thoughtful teams, and ideas worth testing.</p><a class="contact-email" href="mailto:jahnavi.applc@gmail.com">Let's talk ↗</a><div class="contact-links"><a href="data/jahnavi_cv.pdf">Resume ↗</a><a href="https://scholar.google.com/citations?user=SkukPTgAAAAJ&amp;hl=en">Google Scholar ↗</a><a href="https://x.com/sugoi_loop">Elsewhere ↗</a></div></section>
+<footer><span>© 2026 Jahnavi Yelamanchi</span><a href="#top">Back to the map ↑</a></footer>
+</main></div>
+<aside id="link-preview" class="link-preview" role="dialog" aria-label="Link preview" hidden><div class="preview-bar"><span id="preview-domain" class="mono"></span><div><button id="preview-pin" aria-label="Pin preview" aria-pressed="false">Pin</button><button id="preview-close" aria-label="Close preview">×</button></div></div><div id="preview-content"></div><a id="preview-open">Open destination ↗</a></aside>
+<script id="portfolio-data" type="application/json">{"records": [{"id": "project-shadow-eval", "kind": "project", "title": "Shadow Eval", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Production shadow-evaluation service replaying live requests against candidates without affecting users", "details": ["Production shadow-evaluation service replaying live requests against candidates without affecting users", "Blinded pairwise evaluation, statistical regression gates, PII redaction, and cost tracking; flagged an injected regression across 80 paired evaluations at p = 8.27×10⁻²⁵"], "tags": ["Python", "FastAPI", "SQLite", "Docker"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/shadoweval"}], "cells": [[7, 4], [7, 3], [2, 4]]}, {"id": "project-livecanvas", "kind": "project", "title": "LiveCanvas", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Self-hosted real-time collaborative whiteboard, drawing/cursors/presence synced via Yjs CRDTs", "details": ["Self-hosted real-time collaborative whiteboard, drawing/cursors/presence synced via Yjs CRDTs", "Offline edits persisted to IndexedDB, auto-merging on reconnect across Redis-backed replicas"], "tags": ["TypeScript", "React", "Yjs", "Redis", "PostgreSQL", "Docker"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/livecanvas"}], "cells": [[7, 2], [5, 0]]}, {"id": "project-aegis", "kind": "project", "title": "Aegis", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Incident-remediation platform ingesting signals from 4 sources via hybrid pgvector + OpenAI embeddings", "details": ["Incident-remediation platform ingesting signals from 4 sources via hybrid pgvector + OpenAI embeddings", "Human-gated remediation workflows via Temporal, executing scoped Kubernetes actions with full audit trails"], "tags": ["Next.js", "Fastify", "pgvector", "Temporal", "OpenAI", "Kubernetes"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/incident-intelligence-platform"}], "cells": [[7, 3], [7, 2], [3, 0]]}, {"id": "project-privatetext", "kind": "project", "title": "PrivateText", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Fine-tuned PII-redaction classifier compiled with Torch-TensorRT FP16, cutting P50 latency 4.7x at 90.1% F1", "details": ["Fine-tuned PII-redaction classifier compiled with Torch-TensorRT FP16, cutting P50 latency 4.7x at 90.1% F1", "Deployed on Modal, serving character-accurate entity spans in production"], "tags": ["PyTorch", "Torch-TensorRT", "FastAPI", "Modal"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/private-text"}], "cells": [[2, 0], [4, 1], [7, 1]]}, {"id": "project-triage", "kind": "project", "title": "Triage", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Fine-tuned ticket-priority classifier, quantized to INT8 ONNX, cutting latency 32.75ms → 17.15ms", "details": ["Fine-tuned ticket-priority classifier, quantized to INT8 ONNX, cutting latency 32.75ms → 17.15ms", "FastAPI microservice on Modal, 53.3% macro F1 on 6,000+ class-imbalanced tickets"], "tags": ["PyTorch", "ONNX Runtime", "FastAPI", "Modal"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/ticket-priority-classifier"}], "cells": [[2, 0], [4, 1], [7, 1]]}, {"id": "project-inferencebench", "kind": "project", "title": "InferenceBench", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Benchmarking harness comparing vLLM, SGLang, TensorRT-LLM under matched conditions", "details": ["Benchmarking harness comparing vLLM, SGLang, TensorRT-LLM under matched conditions", "Normalizes latency, throughput, and memory across five backends into an interactive dashboard"], "tags": ["Python", "vLLM", "SGLang", "TensorRT-LLM"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/llm-inference-playground"}], "cells": [[5, 4], [6, 4], [4, 4]]}, {"id": "project-cutdown", "kind": "project", "title": "Cutdown", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Multimodal video-clip ranker combining transcript scoring, frozen embeddings, and a trainable ranker head", "details": ["Multimodal video-clip ranker combining transcript scoring, frozen embeddings, and a trainable ranker head", "Full FastAPI + Next.js upload-to-export pipeline evaluated against human-rated highlight clips"], "tags": ["FastAPI", "Next.js", "FFmpeg", "PyTorch"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/cutdown"}], "cells": [[0, 0], [2, 1], [3, 0]]}, {"id": "project-askmydb", "kind": "project", "title": "AskMyDB", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Text-to-SQL copilot using OpenAI function calling with read-only SELECT validation, 93% accuracy", "details": ["Text-to-SQL copilot using OpenAI function calling with read-only SELECT validation, 93% accuracy", "Dockerized FastAPI + React + Postgres, auto-rendering charts, deployed on Railway"], "tags": ["FastAPI", "OpenAI", "PostgreSQL", "React"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/askmydb"}], "cells": [[3, 3], [7, 0]]}, {"id": "project-forge", "kind": "project", "title": "Forge", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Fused GPT-2 attention kernels in Triton, delivering 1.83x forward-pass speedup and 2x memory bandwidth", "details": ["Fused GPT-2 attention kernels in Triton, delivering 1.83x forward-pass speedup and 2x memory bandwidth", "Profiled with NVIDIA NCU to improve pipelining, prefetch stages, and SRAM reuse"], "tags": ["Triton", "CUDA", "PyTorch", "A100"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/forge"}], "cells": [[4, 1], [6, 1], [6, 0]]}, {"id": "project-surge", "kind": "project", "title": "Surge", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Extended vLLM's paged-attention serving for Llama-3-8B, increasing throughput 2.4x at 100ms p99 latency", "details": ["Extended vLLM's paged-attention serving for Llama-3-8B, increasing throughput 2.4x at 100ms p99 latency", "Optimized in-flight batching and KV-cache eviction under bursty single-GPU load"], "tags": ["vLLM", "CUDA", "Kubernetes"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/surge"}], "cells": [[5, 0], [5, 3], [7, 1]]}, {"id": "project-squelch", "kind": "project", "title": "Squelch", "date": "Independent project", "start": null, "end": null, "org": "", "summary": "Post-training INT8 quantization on Whisper-small via TensorRT, cutting latency 2.7x at 0.3 WER degradation", "details": ["Post-training INT8 quantization on Whisper-small via TensorRT, cutting latency 2.7x at 0.3 WER degradation", "Profiled memory bandwidth and SM occupancy with NVIDIA Nsight to remove throughput regressions"], "tags": ["PyTorch", "TensorRT", "ONNX"], "links": [{"label": "Code", "url": "https://github.com/jahnavi-yelamanchi/int8_quant"}], "cells": [[4, 1], [6, 4], [0, 0]]}, {"id": "experience-eminent", "kind": "experience", "title": "Software Engineer", "org": "Eminent Services Corporation", "date": "Jul 2026 – Present", "start": 2026, "end": 2026, "location": "Remote, USA", "summary": "Tested IDMS product workflows and backend integrations, identifying functional defects across production features", "details": ["Tested IDMS product workflows and backend integrations, identifying functional defects across production features", "Collaborated with developers to reproduce failures, document findings, and support root-cause analysis and fixes"], "tags": ["QA", "Backend"], "links": [], "cells": [[7, 4], [7, 2]]}, {"id": "experience-cilvr", "kind": "experience", "title": "ML & Robotics Researcher", "org": "NYU CILVR (GRAIL)", "date": "Apr 2025 – Apr 2026", "start": 2025, "end": 2026, "location": "New York, NY", "summary": "Developed tactile-centric world models using AnySkin sensor + video for reorientation tasks in LIBERO", "details": ["Developed tactile-centric world models using AnySkin sensor + video for reorientation tasks in LIBERO", "Designed a custom \"push-to-align\" block–cabinet task with full dynamics and latent-space modeling for RL", "Built a tactile/proprioceptive data pipeline; fixed a temporal aggregation bug, improving held-out completion", "Deployed robotics workloads via Singularity with Tailscale-based remote access, enabling off-site experiment execution"], "tags": ["PyTorch", "MuJoCo", "Robosuite", "RL", "Singularity"], "links": [], "cells": [[0, 0], [0, 2], [3, 0], [2, 3], [5, 3]]}, {"id": "experience-sai", "kind": "experience", "title": "ML Systems & Inference Researcher", "org": "System & AI Lab (NYU)", "date": "Oct 2024 – Apr 2025", "start": 2024, "end": 2025, "location": "New York, NY", "summary": "Reduced Efficient-VAR inference latency 17% on NVIDIA A100s via Triton kernels and memory-path profiling", "details": ["Reduced Efficient-VAR inference latency 17% on NVIDIA A100s via Triton kernels and memory-path profiling", "Built a non-invasive instrumentation framework to visualize top-k / top-p / CFG tradeoffs", "Shipped transfer-learning pipelines across 3 research projects; PostgreSQL experiment tracking cut logging overhead 35%", "Orchestrated multi-node GPU experiments on Slurm, debugging training failures and scheduling overnight evaluations"], "tags": ["Triton", "CUDA", "PostgreSQL", "Slurm"], "links": [], "cells": [[4, 1], [6, 0], [6, 1], [5, 3], [5, 4]]}, {"id": "experience-tata", "kind": "experience", "title": "Machine Learning Intern", "org": "Tata Steel", "date": "Jan 2024 – May 2024", "start": 2024, "end": 2024, "location": "Kolkata, India", "summary": "Built a generative AI system for automated steel surface defect detection", "details": ["Built a generative AI system for automated steel surface defect detection", "GAN-based data generation pipeline lifted rare-class recall by 28%; containerized training-to-inference with Docker + GitHub Actions"], "tags": ["GANs", "Docker", "CI/CD"], "links": [], "cells": [[0, 0], [2, 1], [7, 1]]}, {"id": "experience-samsung", "kind": "experience", "title": "Research Intern", "org": "Samsung R&D Institute India", "date": "Jul 2023 – Dec 2023", "start": 2023, "end": 2023, "location": "Bangalore, India", "summary": "Optimized CNN/RNN architectures for \u003c10ms mobile inference via quantization and pruning", "details": ["Optimized CNN/RNN architectures for \u003c10ms mobile inference via quantization and pruning", "Built production pipelines syncing vision, audio, and sensor signals at sub-100ms end-to-end latency"], "tags": ["Quantization", "Pruning", "Mobile"], "links": [], "cells": [[0, 2], [4, 1], [6, 1]]}, {"id": "experience-hpe", "kind": "experience", "title": "Data Science Intern", "org": "Hewlett Packard Enterprise", "date": "Dec 2022 – Jan 2023", "start": 2022, "end": 2023, "location": "Chennai, India", "summary": "Trained multilingual text classifiers on 11k+ samples (93% accuracy) with custom NLP pipelines", "details": ["Trained multilingual text classifiers on 11k+ samples (93% accuracy) with custom NLP pipelines", "Deployed distributed training on Azure ML with hyperparameter tuning and A/B testing infrastructure"], "tags": ["NLP", "Azure ML"], "links": [], "cells": [[2, 0], [5, 3], [7, 1]]}, {"id": "oss-deepspeed", "kind": "oss", "title": "DeepSpeed", "org": "Open-source contribution", "date": "Pull requests", "start": null, "end": null, "summary": "Added input validation and regression tests for distributed checkpointing and schedulers, preventing runtime failures (PR #8126)", "details": ["Added input validation and regression tests for distributed checkpointing and schedulers, preventing runtime failures (PR #8126)", "Built optimization-pass contracts and schedule validation for DeepCompile, detecting pre-execution conflicts (PR #8139)"], "tags": ["Python", "PyTorch", "Distributed Systems"], "links": [{"label": "DeepSpeed ↗", "url": "https://github.com/deepspeedai/DeepSpeed"}, {"label": "PR #8126", "url": "https://github.com/deepspeedai/DeepSpeed/pull/8126"}, {"label": "PR #8139", "url": "https://github.com/deepspeedai/DeepSpeed/pull/8139"}], "cells": [[5, 0], [5, 3], [4, 3]]}, {"id": "oss-vllm", "kind": "oss", "title": "vLLM", "org": "Open-source contribution", "date": "Pull requests", "start": null, "end": null, "summary": "Root-caused and patched an out-of-bounds memory read in a Triton MoE kernel, resolving a CUDA illegal access (PR #48371)", "details": ["Root-caused and patched an out-of-bounds memory read in a Triton MoE kernel, resolving a CUDA illegal access (PR #48371)", "Developed a regression test suite, resolving 12/60 failing cases with up to 98% reference-implementation mismatch"], "tags": ["Python", "Triton", "CUDA"], "links": [{"label": "vLLM ↗", "url": "https://github.com/vllm-project/vllm"}, {"label": "PR #48371", "url": "https://github.com/vllm-project/vllm/pull/48371"}], "cells": [[6, 0], [4, 1], [5, 4]]}, {"id": "oss-huggingface-lerobot", "kind": "oss", "title": "HuggingFace LeRobot", "org": "Open-source contribution", "date": "Pull requests", "start": null, "end": null, "summary": "Added a task-prompt configuration option to RoboCasa's eval env, fixing a natural-language/CamelCase mismatch (PR #4073)", "details": ["Added a task-prompt configuration option to RoboCasa's eval env, fixing a natural-language/CamelCase mismatch (PR #4073)", "Developed unit tests covering task-prompt selection and configuration validation"], "tags": ["Python", "PyTorch", "Gym"], "links": [{"label": "HuggingFace LeRobot ↗", "url": "https://github.com/huggingface/lerobot"}, {"label": "PR #4073", "url": "https://github.com/huggingface/lerobot/pull/4073"}], "cells": [[2, 3], [0, 0], [2, 4]]}, {"id": "research-thesis", "kind": "research", "title": "Visuo-Tactile World Models for Dexterous Manipulation: From Simulation Benchmarks to Real-World Skin Sensing", "org": "MASTER'S THESIS · NEW YORK UNIVERSITY · 2026", "authors": "Jahnavi Yelamanchi", "date": "2026", "start": 2026, "end": 2026, "summary": "Builds world models that fuse tactile (AnySkin) and visual signals for dexterous robotic manipulation, evaluated across simulation benchmarks and real-world skin-sensing setups.", "details": [], "tags": [], "image": null, "links": [{"label": "Read Thesis →", "url": "https://www.proquest.com/openview/afca2ee55e6ee4220fe67b2dfab4122b/1?pq-origsite=gscholar&cbl=18750&diss=y"}], "cells": [[0, 0], [3, 0], [2, 3], [2, 4]]}, {"id": "research-csf", "kind": "research", "title": "Prediction of Cerebrospinal Fluid (CSF) Pressure with Generative Adversarial Network Synthetic Plasma-CSF Biomarker Pairing", "org": "FIG. 01 · NEUROINFORMATICS · VOL 23(3) · 2025", "authors": "Phani Paladugu, Rahul Kumar, Jahnavi Yelamanchi, et al.", "date": "2025", "start": 2025, "end": 2025, "summary": "Introduces a GAN-augmented ensemble model using plasma cfRNA to predict CSF pressure non-invasively. Demonstrates high predictive accuracy and clinical relevance for ICP monitoring in spaceflight and clinical contexts.", "details": [], "tags": [], "image": "images/csf-gan.png", "links": [{"label": "Read Paper →", "url": "data/csf-gan.pdf"}], "cells": [[0, 0], [1, 0], [2, 1]]}, {"id": "research-gan", "kind": "research", "title": "Performance Evaluation of Generative Adversarial Networks for Anime Face Synthesis Using Deep Learning Approaches", "org": "FIG. 02 · MULTIDISCIPLINARY SCIENCE JOURNAL · VOL 7(3) · 2025", "authors": "Jahnavi Yelamanchi, Perepi Rajarajeswari, Redrowthu Vijaya Saraswathi, et al.", "date": "2025", "start": 2025, "end": 2025, "summary": "Comparative study of GAN variants (DCGAN, ProGAN, StyleGAN2) for anime face synthesis. StyleGAN2 demonstrated superior effectiveness, achieving the lowest FID score among tested models.", "details": [], "tags": [], "image": "images/anime.png", "links": [{"label": "Read Paper →", "url": "https://www.malque.pub/ojs/index.php/msj/article/view/3868"}], "cells": [[3, 0], [2, 4], [1, 4]]}, {"id": "research-neuro", "kind": "research", "title": "Artificial Intelligence-Based Methodologies for Early Diagnostic Precision and Personalized Therapeutic Strategies in Neuro-Ophthalmic and Neurodegenerative Pathologies", "org": "FIG. 03 · BRAIN SCIENCES · VOL 14(12) · 2024", "authors": "Rahul Kumar, Ethan Waisberg, Jahnavi Yelamanchi, et al.", "date": "2024", "start": 2024, "end": 2024, "summary": "Review highlighting the role of AI-enhanced diffusion MRI and PET imaging in early diagnosis of neurodegenerative and neuro-ophthalmic disorders, integrating multimodal data with deep learning models for improved precision.", "details": [], "tags": [], "image": "images/neuro-img.png", "links": [{"label": "Read Paper →", "url": "https://www.mdpi.com/2076-3425/14/12/1266"}], "cells": [[0, 0], [2, 0], [2, 4]]}, {"id": "education-nyu", "kind": "education", "title": "New York University", "org": "Master's in Computer Engineering · GPA 3.83/4.0", "date": "Aug 2024 – May 2026", "start": 2024, "end": 2026, "summary": "Coursework: ML, Computer Vision, Reinforcement Learning, Hardware Accelerator Design. Thesis: Visuo-Tactile World Models for Dexterous Manipulation.", "details": [], "tags": [], "links": [], "cells": [[1, 1], [2, 3], [6, 1]]}, {"id": "education-vit", "kind": "education", "title": "Vellore Institute of Technology", "org": "Bachelor's in Computer Science Engineering · GPA 3.97/4.0", "date": "Sept 2020 – June 2024", "start": 2020, "end": 2024, "summary": "Visiting student at the National University of Singapore, Dec 2022 – May 2023. Also taught as Student Instructor for CSE1006 (Blockchain & Cryptocurrency Technologies, Winter 2023) and CSE4001 (Parallel & Distributed Computing, Fall 2023).", "details": [], "tags": [], "links": [], "cells": [[1, 1], [2, 1], [5, 2]]}], "skills": [{"title": "Inference & Optimization", "tools": ["Triton", "TensorRT", "vLLM", "KV-cache", "Paged Attention"]}, {"title": "Languages", "tools": ["Python", "C/C++", "CUDA", "SQL", "TypeScript", "Bash", "MATLAB"]}, {"title": "ML & DL", "tools": ["PyTorch", "JAX", "TensorFlow", "scikit-learn", "OpenCV", "RAG", "LangChain", "LangGraph"]}, {"title": "Infrastructure & Backend", "tools": ["FastAPI", "Node.js", "AWS", "GCP", "Azure ML", "Docker", "Kubernetes", "CI/CD", "PostgreSQL", "pgvector", "MongoDB", "Pinecone"]}, {"title": "Tools", "tools": ["Git", "Linux", "Claude Code", "Codex"]}, {"title": "Robotics & RL", "tools": ["ROS", "MuJoCo", "Robosuite", "IsaacSim", "Stable-Baselines3"]}]}</script>
+<script type="module" src="js/portfolio.js"></script>
+</body></html>
