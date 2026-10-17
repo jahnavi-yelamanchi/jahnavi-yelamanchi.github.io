@@ -2,22 +2,33 @@
 from pathlib import Path
 from html import escape as esc
 import json
+from visuals import research_visual, transformer_footer
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / 'data/portfolio.json').read_text())
 records = DATA['records']
 def e(value): return esc(str(value), quote=True)
 def links(r):
- return ''.join(f'<a href="{e(x["url"])}">{e(x["label"].rstrip(" →↗"))} <span aria-hidden="true">↗</span></a>' for x in r['links'])
+ return ''.join(f'<a href="{e(x["url"])}">{e(x["label"].rstrip(" →↗"))} <span aria-hidden="true">↗</span></a>' for x in r['links'] if r['kind'] != 'oss' or '/pull/' in x['url'])
 def row(r):
  image = f'<img class="paper-image" src="{e(r["image"])}" alt="Figure from {e(r["title"])}" loading="lazy" width="320" height="200">' if r.get('image') else ''
+ if r.get('visual'): image = research_visual(r['visual'])
  details = ''.join(f'<li>{e(x)}</li>' for x in r['details'])
  body = f'<ul>{details}</ul>' if details else f'<p>{e(r["summary"])}</p>'
+ meta = f'<span>{e(r["date"])}</span>{image}'
+ heading = f'<h3>{e(r["title"])}</h3><p class="record-org">{e(r["org"])}</p>'
+ if r['kind'] == 'oss':
+  repo = next(x for x in r['links'] if '/pull/' not in x['url'])
+  meta = f'<h3><a href="{e(repo["url"])}">{e(r["title"])} <span aria-hidden="true">↗</span></a></h3>'
+  heading = ''
+ locate = '' if r['kind'] == 'experience' else f'<button class="map-link" data-record="{e(r["id"])}">Locate on map <span aria-hidden="true">↗</span></button>'
+ actions = links(r) + locate
  return f'''<article class="record {r['kind']}" id="{e(r['id'])}">
- <div class="record-meta"><span>{e(r['date'])}</span>{image}</div>
- <div class="record-body"><h3>{e(r['title'])}</h3><p class="record-org">{e(r['org'])}</p>
+ <div class="record-meta">{meta}</div>
+ <div class="record-body">{heading}
  {f'<p class="authors">{e(r["authors"])}</p>' if r.get('authors') else ''}{body}
- <div class="record-links">{links(r)}<button class="map-link" data-record="{e(r['id'])}">Locate on map <span aria-hidden="true">↗</span></button></div>
+{f'<div class="record-links">{actions}</div>' if actions else ''}
  {f'<p class="record-tools">{e(" · ".join(r["tags"]))}</p>' if r['tags'] else ''}</div></article>'''
+
 def section(id,title,kind,description=''):
  rows=[r for r in records if r['kind']==kind]
  return f'<section class="listing" id="{id}" aria-labelledby="{id}-title"><div class="section-heading"><h2 id="{id}-title">{title}</h2><span class="mono">{len(rows):02d} entries</span></div>{f"<p class=section-intro>{description}</p>" if description else ""}{"".join(row(r) for r in rows)}</section>'
@@ -58,18 +69,18 @@ html='''<!doctype html>
 </aside>
 <main id="main">
 <section class="atlas-section" id="top" aria-labelledby="map-title">
- <header class="atlas-heading"><div><h1 id="map-title">A map of my work</h1><p>Different questions. Connected work.</p></div><a class="year-range mono" href="#about">2020 — 2026 ↘</a></header>
+ <header class="atlas-heading"><div><h1 id="map-title">A map of my work</h1><p>Different questions. Connected work.</p></div><button id="reset-map" class="map-reset mono">Reset view ↺</button></header>
  <div class="map-filters" role="group" aria-label="Filter map by type">
  <button data-kind="all" aria-pressed="true">All work</button><button data-kind="experience" aria-pressed="false">Experience</button><button data-kind="project" aria-pressed="false">Projects</button><button data-kind="research" aria-pressed="false">Research</button><button data-kind="oss" aria-pressed="false">OSS</button><button data-kind="education" aria-pressed="false">Education</button>
  </div>
- <div class="map-stage" id="map-stage"><canvas id="work-map" aria-hidden="true"></canvas><div id="map-labels"></div><div class="map-axis-note mono">What holds, transforms,<br>moves, decides &amp; measures.</div><p class="map-fallback" hidden>The interactive drawing is unavailable. Explore the same work using the filters and record controls below.</p><noscript><p class="map-fallback">Enable JavaScript to explore the map. All work is available in the listings below.</p></noscript></div>
- <div class="map-caption"><span id="map-context">Hover a cell to find the connections.</span><button id="reset-map" class="text-button">Reset view ↺</button></div>
+ <div class="map-stage" id="map-stage"><canvas id="work-map" aria-hidden="true"></canvas><div id="map-labels"></div><p class="map-fallback" hidden>The interactive drawing is unavailable. Explore the same work using the filters and record controls below.</p><noscript><p class="map-fallback">Enable JavaScript to explore the map. All work is available in the listings below.</p></noscript></div>
+ <div class="map-caption"><span id="map-context">Hover tiles to preview work. Click to pin.</span></div>
  <div class="year-filter" role="group" aria-label="Filter dated work by year"><button data-year="all" aria-pressed="true">All years</button>''' + ''.join(f'<button data-year="{y}" aria-pressed="false">{y}</button>' for y in range(2020,2027)) + '''</div>
- <div class="evidence" id="evidence" aria-live="polite" aria-atomic="true">
+ <div class="evidence" id="evidence" hidden aria-live="polite" aria-atomic="true">
  <div class="evidence-copy"><div class="evidence-meta mono" id="evidence-meta">Experience · 2025–26</div><h2 id="evidence-title">Learning through touch &amp; vision</h2><p id="evidence-summary">World models, tactile data, and robotics experiments at NYU CILVR.</p><a id="evidence-link" href="#experience-cilvr">View experience ↗</a></div>
  <div class="evidence-controls"><span id="evidence-count" class="mono"></span><div><button id="previous-record" aria-label="Previous record">←</button><button id="next-record" aria-label="Next record">→</button></div></div>
  </div>
- <div class="map-footnote"><span>Layers × roles. Select a cell; follow the evidence.</span><a href="#experience">The longer story ↓</a></div>
+ <div class="map-footnote"><span>Hover row & column names for definitions.</span><a href="#experience">The longer story ↓</a></div>
 </section>
 ''' + projects_html + section('experience','Experience','experience','Research and applied work, from undergraduate study to hands-on robotics and ML systems.') + section('open-source','Open source','oss','Small changes in systems I care about. The pull requests tell the story.') + section('research','Publications & thesis','research') + '''
 <section class="listing about" id="about" aria-labelledby="about-title"><div class="section-heading"><h2 id="about-title">A little more context</h2><span class="mono">2020 — 2026</span></div>
@@ -77,8 +88,8 @@ html='''<!doctype html>
 <div class="education-list">''' + ''.join(row(r) for r in records if r['kind']=='education') + '''</div>
 <details class="toolbox"><summary>Tools I work with <span aria-hidden="true">+</span></summary><div class="skills-grid">''' + skills + '''</div></details>
 </section>
-<section class="listing contact" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Good problems.<br>Good people.</h2><p>I'm interested in ML engineering and research roles, thoughtful teams, and ideas worth testing.</p><a class="contact-email" href="mailto:jahnavi.applc@gmail.com">Let's talk ↗</a><div class="contact-links"><a href="data/jahnavi_cv.pdf">Resume ↗</a><a href="https://scholar.google.com/citations?user=SkukPTgAAAAJ&amp;hl=en">Google Scholar ↗</a><a href="https://x.com/sugoi_loop">Elsewhere ↗</a></div></section>
-<footer><span>© 2026 Jahnavi Yelamanchi</span><a href="#top">Back to the map ↑</a></footer>
+<section class="listing contact" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Good problems. Good people.</h2><p>I'm interested in ML engineering and research roles, thoughtful teams, and ideas worth testing.</p><a class="contact-email" href="mailto:jahnavi.applc@gmail.com">Let's talk ↗</a><div class="contact-links"><a href="data/jahnavi_cv.pdf">Resume ↗</a><a href="https://scholar.google.com/citations?user=SkukPTgAAAAJ&amp;hl=en">Google Scholar ↗</a><a href="https://x.com/sugoi_loop">Elsewhere ↗</a></div></section>
+''' + transformer_footer() + '''
 </main></div>
 <aside id="link-preview" class="link-preview" role="dialog" aria-label="Link preview" hidden><div class="preview-bar"><span id="preview-domain" class="mono"></span><div><button id="preview-pin" aria-label="Pin preview" aria-pressed="false">Pin</button><button id="preview-close" aria-label="Close preview">×</button></div></div><div id="preview-content"></div><a id="preview-open">Open destination ↗</a></aside>
 <script id="portfolio-data" type="application/json">''' + json.dumps(DATA,ensure_ascii=False).replace('<','\\u003c') + '''</script>
