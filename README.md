@@ -21,7 +21,7 @@ Open http://127.0.0.1:4173/ for the map, or http://127.0.0.1:4173/work.html for 
 - `css/style.css` contains light/dark tokens and responsive layouts.
 - `js/work-map.js` draws the wireframe in WebGL, with an SVG fallback.
 - `js/portfolio.js` handles shared navigation and theme preference.
-- `js/map-controller.js` handles map filtering, selection, and incoming record links.
+- `js/map-controller.js` handles map selection and incoming record links.
 - `js/previews.js` provides desktop link previews from local content.
 
 After editing content or the page template:
@@ -41,10 +41,8 @@ Coordinates are zero-indexed `[row, column]`. They are editorial connections to
 work described in each record, not proficiency scores. Relief highlights the
 selected record and does not encode a quantitative measurement.
 
-Dated entries appear when their date range includes the selected year. Undated
-projects and contributions appear under **All years**, so no dates are invented.
-Record kind and year filters combine. **Reset view** in the map header clears both
-and dismisses the selected record.
+The map always includes every kind of work across all years. There are no type
+or year filters. **Reset view** clears the selected or pinned record.
 
 Every record has a static anchor. Hover or keyboard focus on a row or column name
 shows its definition; tapping a label also opens it. Column definitions and examples
@@ -53,7 +51,7 @@ Hovering or focusing a tile previews matching work. Click, tap, or Enter pins th
 selection so other tile hovers and focus changes leave it unchanged. Selecting a
 different tile switches the pin; selecting the pinned tile again unpins it.
 Record arrows and **Locate on map** provide additional ways to explore; locating a
-record pins its preview. Reset and filters clear the pin. All work remains available
+record pins its preview. Reset clears the pin. All work remains available
 in the full listings. Seven additional projects expand under the project list;
 deep links open the disclosure automatically.
 
