@@ -20,7 +20,7 @@ def row(r):
   repo = next(x for x in r['links'] if '/pull/' not in x['url'])
   meta = f'<h3><a href="{e(repo["url"])}">{e(r["title"])} <span aria-hidden="true">↗</span></a></h3>'
   heading = ''
- locate = '' if r['kind'] == 'experience' else f'<button class="map-link" data-record="{e(r["id"])}">Locate on map <span aria-hidden="true">↗</span></button>'
+ locate = '' if r['kind'] == 'experience' else f'<a class="map-link" href="index.html?record={e(r["id"])}#top">Locate on map <span aria-hidden="true">↗</span></a>'
  actions = links(r) + locate
  return f'''<article class="record {r['kind']}" id="{e(r['id'])}">
  <div class="record-meta">{meta}</div>
@@ -38,7 +38,7 @@ featured=[next(r for r in projects if r['id']==i) for i in featured_ids]
 remaining=[r for r in projects if r not in featured]
 projects_html=f'''<section class="listing" id="projects" aria-labelledby="projects-title"><div class="section-heading"><h2 id="projects-title">Selected projects</h2><span class="mono">04 / 11</span></div><p class="section-intro">A few things I've built, from multimodal video to the kernels underneath.</p>{''.join(row(r) for r in featured)}<details class="more-projects"><summary>Seven more experiments <span aria-hidden="true">+</span></summary>{''.join(row(r) for r in remaining)}</details></section>'''
 skills=''.join(f'<div><h3>{e(s["title"])}</h3><p>{e(" · ".join(s["tools"]))}</p></div>' for s in DATA['skills'])
-html='''<!doctype html>
+shell='''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,52 +49,60 @@ html='''<!doctype html>
 <script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{}</script>
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="PAGE_CLASS">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="page-shell">
 <aside class="sidebar" aria-label="Introduction and navigation">
- <div class="identity"><a class="name" href="#top">Jahnavi<br>Yelamanchi<span class="name-dot">.</span></a><p class="role">ML systems &amp; research engineering</p></div>
+ <div class="identity"><a class="name" href="index.html#top">Jahnavi<br> Yelamanchi<span class="name-dot">.</span></a><p class="role">ML systems &amp; research engineering</p></div>
  <p class="intro">I like understanding what happens between a model and the machine it runs on.</p>
  <p class="intro-secondary">Learning from touch and video.<br>Working with robots and GPU clusters.<br>Following the interesting questions.</p>
  <nav class="site-nav" aria-label="Main navigation">
- <a href="#top" aria-current="location"><span>The map</span><span class="nav-mark">↗</span></a>
- <a href="#projects"><span>Projects</span><span class="nav-mark">↗</span></a>
- <a href="#experience"><span>Experience</span><span class="nav-mark">↗</span></a>
- <a href="#open-source"><span>Open source</span><span class="nav-mark">↗</span></a>
- <a href="#research"><span>Research</span><span class="nav-mark">↗</span></a>
- <a href="#about"><span>About</span><span class="nav-mark">↗</span></a>
+ <a href="index.html#top" aria-current="location"><span>The map</span><span class="nav-mark">↗</span></a>
+ <a href="work.html#projects"><span>Projects</span><span class="nav-mark">↗</span></a>
+ <a href="work.html#experience"><span>Experience</span><span class="nav-mark">↗</span></a>
+ <a href="work.html#open-source"><span>Open source</span><span class="nav-mark">↗</span></a>
+ <a href="work.html#research"><span>Research</span><span class="nav-mark">↗</span></a>
+ <a href="work.html#about"><span>About</span><span class="nav-mark">↗</span></a>
  </nav>
  <div class="sidebar-bottom"><div class="social-links"><a href="mailto:jahnavi.applc@gmail.com">Email ↗</a><a href="data/jahnavi_cv.pdf">Resume ↗</a><a href="https://github.com/jahnavi-yelamanchi/">GitHub ↗</a><a href="https://www.linkedin.com/in/jahnaviym">LinkedIn ↗</a></div>
  <div class="theme-control" role="group" aria-label="Color theme"><button data-theme-choice="light" aria-pressed="true">Light</button><span>/</span><button data-theme-choice="dark" aria-pressed="false">Dark</button><span class="local-note">New York</span></div></div>
 </aside>
-<main id="main">
-<section class="atlas-section" id="top" aria-labelledby="map-title">
+'''
+map_html='''<section class="atlas-section" id="top" aria-labelledby="map-title">
  <header class="atlas-heading"><div><h1 id="map-title">A map of my work</h1><p>Different questions. Connected work.</p></div><button id="reset-map" class="map-reset mono">Reset view ↺</button></header>
  <div class="map-filters" role="group" aria-label="Filter map by type">
  <button data-kind="all" aria-pressed="true">All work</button><button data-kind="experience" aria-pressed="false">Experience</button><button data-kind="project" aria-pressed="false">Projects</button><button data-kind="research" aria-pressed="false">Research</button><button data-kind="oss" aria-pressed="false">OSS</button><button data-kind="education" aria-pressed="false">Education</button>
  </div>
- <div class="map-stage" id="map-stage"><canvas id="work-map" aria-hidden="true"></canvas><div id="map-labels"></div><p class="map-fallback" hidden>The interactive drawing is unavailable. Explore the same work using the filters and record controls below.</p><noscript><p class="map-fallback">Enable JavaScript to explore the map. All work is available in the listings below.</p></noscript></div>
+ <div class="map-stage" id="map-stage"><canvas id="work-map" aria-hidden="true"></canvas><div id="map-labels"></div><p class="map-fallback" hidden>The interactive drawing is unavailable. Explore the same work using the filters and record controls below.</p><noscript><p class="map-fallback">Enable JavaScript to explore the map. All work is available on the work page.</p></noscript></div>
  <div class="map-caption"><span id="map-context">Hover tiles to preview work. Click to pin.</span></div>
  <div class="year-filter" role="group" aria-label="Filter dated work by year"><button data-year="all" aria-pressed="true">All years</button>''' + ''.join(f'<button data-year="{y}" aria-pressed="false">{y}</button>' for y in range(2020,2027)) + '''</div>
  <div class="evidence" id="evidence" hidden aria-live="polite" aria-atomic="true">
- <div class="evidence-copy"><div class="evidence-meta mono" id="evidence-meta">Experience · 2025–26</div><h2 id="evidence-title">Learning through touch &amp; vision</h2><p id="evidence-summary">World models, tactile data, and robotics experiments at NYU CILVR.</p><a id="evidence-link" href="#experience-cilvr">View experience ↗</a></div>
+ <div class="evidence-copy"><div class="evidence-meta mono" id="evidence-meta">Experience · 2025–26</div><h2 id="evidence-title">Learning through touch &amp; vision</h2><p id="evidence-summary">World models, tactile data, and robotics experiments at NYU CILVR.</p><a id="evidence-link" href="work.html#experience-cilvr">View experience ↗</a></div>
  <div class="evidence-controls"><span id="evidence-count" class="mono"></span><div><button id="previous-record" aria-label="Previous record">←</button><button id="next-record" aria-label="Next record">→</button></div></div>
  </div>
- <div class="map-footnote"><span>Hover row & column names for definitions.</span><a href="#experience">The longer story ↓</a></div>
-</section>
-''' + projects_html + section('experience','Experience','experience','Research and applied work, from undergraduate study to hands-on robotics and ML systems.') + section('open-source','Open source','oss','Small changes in systems I care about. The pull requests tell the story.') + section('research','Publications & thesis','research') + '''
+ <div class="map-footnote"><span>Hover row & column names for definitions.</span><a href="work.html#projects">The longer story →</a></div>
+</section>'''
+work_html=projects_html + section('experience','Experience','experience','Research and applied work, from undergraduate study to hands-on robotics and ML systems.') + section('open-source','Open source','oss','Small changes in systems I care about. The pull requests tell the story.') + section('research','Publications & thesis','research') + '''
 <section class="listing about" id="about" aria-labelledby="about-title"><div class="section-heading"><h2 id="about-title">A little more context</h2><span class="mono">2020 — 2026</span></div>
 <div class="about-intro"><img src="images/headshot.png" alt="Jahnavi by a pond in autumn" width="461" height="471" loading="lazy"><div><h3>Between models<br>and machines.</h3><p>I'm drawn to the parts of ML that meet the real world: a robot learning through touch, a model waiting on memory, an experiment that needs to run reliably.</p><p>Six years of computer science and computer engineering have taken me through research, applied ML, and the systems underneath. I like being able to follow the problem across those boundaries.</p><p>Right now, I'm digging further into how hardware shapes a model, how to understand what it learns, and how to keep agents useful over longer tasks.</p></div></div>
 <div class="education-list">''' + ''.join(row(r) for r in records if r['kind']=='education') + '''</div>
 <details class="toolbox"><summary>Tools I work with <span aria-hidden="true">+</span></summary><div class="skills-grid">''' + skills + '''</div></details>
 </section>
 <section class="listing contact" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Good problems. Good people.</h2><p>I'm interested in ML engineering and research roles, thoughtful teams, and ideas worth testing.</p><a class="contact-email" href="mailto:jahnavi.applc@gmail.com">Let's talk ↗</a><div class="contact-links"><a href="data/jahnavi_cv.pdf">Resume ↗</a><a href="https://scholar.google.com/citations?user=SkukPTgAAAAJ&amp;hl=en">Google Scholar ↗</a><a href="https://x.com/sugoi_loop">Elsewhere ↗</a></div></section>
-''' + transformer_footer() + '''
+''' + transformer_footer()
+tail='''
 </main></div>
 <aside id="link-preview" class="link-preview" role="dialog" aria-label="Link preview" hidden><div class="preview-bar"><span id="preview-domain" class="mono"></span><div><button id="preview-pin" aria-label="Pin preview" aria-pressed="false">Pin</button><button id="preview-close" aria-label="Close preview">×</button></div></div><div id="preview-content"></div><a id="preview-open">Open destination ↗</a></aside>
 <script id="portfolio-data" type="application/json">''' + json.dumps(DATA,ensure_ascii=False).replace('<','\\u003c') + '''</script>
 <script type="module" src="js/portfolio.js"></script>
 </body></html>
 '''
-(ROOT/'index.html').write_text(html)
-print(f'Built index.html with {len(records)} linked records.')
+for filename, page_class, content in [('index.html', 'map-page', map_html), ('work.html', 'work-page', work_html)]:
+ page_shell = shell.replace('PAGE_CLASS', page_class)
+ if page_class == 'work-page':
+  page_shell = page_shell.replace('href="index.html#top" aria-current="location"', 'href="index.html#top"')
+  page_shell = page_shell.replace('href="work.html#projects"', 'href="work.html#projects" aria-current="location"', 1)
+  page_shell = page_shell.replace('Between models and machines</title>', 'Selected work</title>')
+  content = content.replace('<h2 id="projects-title">Selected projects</h2>', '<h1 id="projects-title">Selected projects</h1>')
+ (ROOT / filename).write_text(page_shell + '<main id="main" tabindex="-1">' + content + tail)
+print(f'Built index.html and work.html with {len(records)} linked records.')
