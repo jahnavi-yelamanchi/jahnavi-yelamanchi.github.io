@@ -226,24 +226,13 @@ main {
   white-space:nowrap;
   color:var(--muted);
 }
-.map-filters {
-  display:flex;
-  gap:22px;
-  border-bottom:1px solid var(--strong-line);
-  font-family:var(--mono);
-  font-size:11px;
-  overflow:auto;
-  scrollbar-width:thin;
+.map-instructions {
   flex-shrink:0;
-}
-.map-filters button {
+  min-height:40px;
   padding:10px 0;
-  white-space:nowrap;
-  border-bottom:2px solid transparent;
-  min-height:42px;
-}
-.map-filters button[aria-pressed=true] {
-  border-color:var(--ink);
+  border-bottom:1px solid var(--strong-line);
+  font:10px/1.5 var(--mono);
+  color:var(--muted);
 }
 .map-stage {
   position:relative;
@@ -301,41 +290,6 @@ main {
 }
 .text-button {
   white-space:nowrap;
-}
-.year-filter {
-  display:flex;
-  align-items:center;
-  gap:0;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  font:10px/1.5 var(--mono);
-}
-.year-filter button {
-  flex:1;
-  padding:10px 0;
-  min-height:36px;
-  position:relative;
-  color:var(--muted);
-}
-.year-filter button:first-child {
-  flex:1.5;
-  text-align:left;
-}
-.year-filter button[aria-pressed=true] {
-  color:var(--ink);
-  font-weight:bold;
-}
-.year-filter button[aria-pressed=true]:after {
-  content:'';
-  position:absolute;
-  width:4px;
-  height:4px;
-  background:var(--accent);
-  bottom:3px;
-  left:50%;
-}
-.year-filter button:first-child:after {
-  left:18px;
 }
 .evidence {
   border-bottom:1px solid var(--strong-line);
@@ -772,10 +726,6 @@ footer {
   main {
     padding:0 28px;
   }
-  .map-filters {
-    gap:15px;
-    font-size:10px;
-  }
     .record {
     grid-template-columns:110px minmax(0,1fr);
     gap:20px;
@@ -877,10 +827,6 @@ footer {
   .map-label {
     font-size:9px;
   }
-  .map-filters {
-    gap:24px;
-    font-size:11px;
-  }
   .record {
     grid-template-columns:135px minmax(0,1fr);
   }
@@ -942,15 +888,6 @@ footer {
   .map-reset {
     font-size:8px;
   }
-  .map-filters {
-    gap:2px 18px;
-    font-size:10px;
-    flex-wrap:wrap;
-  }
-  .map-filters button {
-    min-height:34px;
-    padding:8px 0;
-  }
   .map-stage {
     height:315px;
     min-height:315px;
@@ -965,9 +902,6 @@ footer {
   }
   .map-caption>span {
     max-width:27ch;
-  }
-  .year-filter {
-    font-size:9px;
   }
   .evidence {
     gap:15px;
@@ -1208,7 +1142,6 @@ footer {
 .map-page .map-stage {flex:1 1 0;height:auto;min-height:180px;max-height:none}
 .map-page .map-caption>span {max-width:none}
 .map-page .map-caption {flex-shrink:0;min-height:32px;padding:7px 0}
-.map-page .year-filter {flex-shrink:0}
 .map-page .evidence {flex:0 0 170px;min-height:0;padding:16px 0;overflow:hidden}
 .map-page .evidence[hidden] {display:flex!important;visibility:hidden}
 .map-page .evidence-copy {min-width:0}
@@ -1228,10 +1161,8 @@ footer {
   .map-page .atlas-section {padding-top:16px;padding-bottom:8px}
   .map-page .atlas-heading {margin-bottom:10px}
   .map-page .atlas-heading h1 {font-size:32px}
-  .map-page .map-filters button {min-height:34px;padding:7px 0}
   .map-page .map-stage {min-height:150px}
   .map-page .evidence {flex-basis:150px;padding:12px 0}
-  .map-page .year-filter button {min-height:32px;padding:7px 0}
   .map-page .map-footnote {padding-top:8px;min-height:28px}
 }
 @media(max-width:900px) {
@@ -1251,8 +1182,6 @@ footer {
   .map-page .atlas-heading {margin-bottom:12px}
   .map-page .atlas-heading h1 {font-size:30px}
   .map-page .map-stage {min-height:170px;margin-top:8px}
-  .map-page .map-filters {flex-wrap:nowrap;gap:16px;font-size:9px}
-  .map-page .map-filters button {min-height:32px;padding:7px 0}
   .map-page .map-caption {font-size:8px;min-height:28px;padding:6px 0}
   .map-page .evidence {flex-basis:158px;padding:12px 0;gap:12px}
   .map-page .evidence h2 {font-size:20px}
@@ -1266,10 +1195,13 @@ footer {
   .site-nav {gap:8px 15px}
   .site-nav a {font-size:10px}
   .map-page .atlas-heading h1 {font-size:26px}
-  .map-page .map-filters {gap:13px;font-size:8px}
   .map-page .map-label {font-size:8px}
   .map-page .evidence-meta {font-size:8px}
   .map-page .evidence-controls {min-width:58px}
   .map-page .evidence-controls button {width:27px;height:27px}
   .map-page .map-footnote {gap:8px;font-size:8px}
+}
+
+@media(max-width:900px) {
+  .map-instructions {font-size:9px;min-height:32px;padding:8px 0}
 }

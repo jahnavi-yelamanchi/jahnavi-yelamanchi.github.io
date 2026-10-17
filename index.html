@@ -29,12 +29,9 @@
 </aside>
 <main id="main" tabindex="-1"><section class="atlas-section" id="top" aria-labelledby="map-title">
  <header class="atlas-heading"><div><h1 id="map-title">A map of my work</h1><p>Different questions. Connected work.</p></div><button id="reset-map" class="map-reset mono">Reset view ↺</button></header>
- <div class="map-filters" role="group" aria-label="Filter map by type">
- <button data-kind="all" aria-pressed="true">All work</button><button data-kind="experience" aria-pressed="false">Experience</button><button data-kind="project" aria-pressed="false">Projects</button><button data-kind="research" aria-pressed="false">Research</button><button data-kind="oss" aria-pressed="false">OSS</button><button data-kind="education" aria-pressed="false">Education</button>
- </div>
- <div class="map-stage" id="map-stage"><canvas id="work-map" aria-hidden="true"></canvas><div id="map-labels"></div><p class="map-fallback" hidden>The interactive drawing is unavailable. Explore the same work using the filters and record controls below.</p><noscript><p class="map-fallback">Enable JavaScript to explore the map. All work is available on the work page.</p></noscript></div>
- <div class="map-caption"><span id="map-context">Hover tiles to preview work. Click to pin.</span></div>
- <div class="year-filter" role="group" aria-label="Filter dated work by year"><button data-year="all" aria-pressed="true">All years</button><button data-year="2020" aria-pressed="false">2020</button><button data-year="2021" aria-pressed="false">2021</button><button data-year="2022" aria-pressed="false">2022</button><button data-year="2023" aria-pressed="false">2023</button><button data-year="2024" aria-pressed="false">2024</button><button data-year="2025" aria-pressed="false">2025</button><button data-year="2026" aria-pressed="false">2026</button></div>
+ <p class="map-instructions">Hover tiles to preview work. Click to pin.</p>
+ <div class="map-stage" id="map-stage"><canvas id="work-map" aria-hidden="true"></canvas><div id="map-labels"></div><p class="map-fallback" hidden>The interactive drawing is unavailable. Explore the same work on the work page.</p><noscript><p class="map-fallback">Enable JavaScript to explore the map. All work is available on the work page.</p></noscript></div>
+ <div class="map-caption"><span id="map-context"></span></div>
  <div class="evidence" id="evidence" hidden aria-live="polite" aria-atomic="true">
  <div class="evidence-copy"><div class="evidence-meta mono" id="evidence-meta">Experience · 2025–26</div><h2 id="evidence-title">Learning through touch &amp; vision</h2><p id="evidence-summary">World models, tactile data, and robotics experiments at NYU CILVR.</p><a id="evidence-link" href="work.html#experience-cilvr">View experience ↗</a></div>
  <div class="evidence-controls"><span id="evidence-count" class="mono"></span><div><button id="previous-record" aria-label="Previous record">←</button><button id="next-record" aria-label="Next record">→</button></div></div>
