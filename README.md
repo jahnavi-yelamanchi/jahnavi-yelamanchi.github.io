@@ -13,7 +13,9 @@ Open http://127.0.0.1:4173. No package installation or API keys are required.
 
 ## Edit content
 
-- `data/portfolio.json` contains the 26 records, links, dates, and map coordinates.
+- `data/portfolio.json` contains the 27 records, links, dates, and map coordinates.
+- `scripts/visuals.py` supplies research diagrams and the pixel transformer footer.
+- `js/footer-motion.js` handles footer pause, reduced motion, and offscreen behavior.
 - `scripts/build.py` generates `index.html`, including all static listings and embedded map data.
 - `css/style.css` contains light/dark tokens and responsive layouts.
 - `js/work-map.js` draws the wireframe in WebGL, with an SVG fallback.
@@ -39,10 +41,17 @@ selected record and does not encode a quantitative measurement.
 
 Dated entries appear when their date range includes the selected year. Undated
 projects and contributions appear under **All years**, so no dates are invented.
-Record kind and year filters combine. **Reset view** clears both.
+Record kind and year filters combine. **Reset view** in the map header clears both
+and dismisses the selected record.
 
-Every record has a static anchor. Cell selection, record arrows, and **Locate on
-map** provide multiple ways to explore. The nonselected work remains available
+Every record has a static anchor. Hover or keyboard focus on a row or column name
+shows its definition; tapping a label also opens it. Column definitions and examples
+are adapted from the supplied StaffML reference. Escape dismisses the definition.
+Hovering or focusing a tile previews matching work. Click, tap, or Enter pins that
+selection so other tile hovers and focus changes leave it unchanged. Selecting a
+different tile switches the pin; selecting the pinned tile again unpins it.
+Record arrows and **Locate on map** provide additional ways to explore; locating a
+record pins its preview. Reset and filters clear the pin. All work remains available
 in the full listings. Seven additional projects expand under the project list;
 deep links open the disclosure automatically.
 
@@ -50,7 +59,8 @@ deep links open the disclosure automatically.
 
 - Real HTML buttons, visible keyboard focus, labeled cells, and an evidence panel.
 - Light/dark theme follows the device initially and remembers an explicit choice.
-- Reduced-motion preference removes the cell transition; drawing stops offscreen.
+- Reduced-motion preference removes the cell transition and footer animation.
+  The footer can also be paused manually; both animations stop offscreen.
 - SVG fallback when WebGL is unavailable; the full record is readable without JS.
 - Desktop previews support pointer hover and keyboard focus. Press Arrow Down
   from a previewed link to enter the preview, or pin it. Escape closes it.
@@ -68,3 +78,7 @@ loaded by the new page.
 Original portfolio acknowledgment: previously adapted from Jon Barron’s academic
 website (https://jonbarron.info/). Current visual references: Paradigm and Sahaana
 Shankar; custom implementation and interaction model.
+
+The October 2026 arXiv entry and retrieval chart use the paper abstract at
+https://arxiv.org/abs/2610.17549. The thesis illustration and transformer footer
+are conceptual schematics, not experimental figures or live model traces.

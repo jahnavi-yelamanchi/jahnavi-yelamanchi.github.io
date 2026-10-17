@@ -795,6 +795,41 @@
       ]
     },
     {
+      "id": "research-reference-wording",
+      "kind": "research",
+      "title": "Reference Wording Shapes Retrieval of Robot Task Instructions",
+      "org": "arXiv preprint · arXiv:2610.17549",
+      "authors": "Jahnavi Yelamanchi",
+      "date": "Oct 2026",
+      "start": 2026,
+      "end": 2026,
+      "summary": "Studies how reference wording changes instruction-to-task retrieval in RLBench. Across 62 tasks and 80 reference galleries, character TF-IDF reaches 61.3% mean top-1 accuracy; adding a second reference description improves accuracy by 7.0 percentage points on matched queries.",
+      "details": [],
+      "tags": [],
+      "image": null,
+      "visual": "retrieval",
+      "links": [
+        {
+          "label": "Read Paper →",
+          "url": "https://arxiv.org/abs/2610.17549"
+        }
+      ],
+      "cells": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    {
       "id": "research-thesis",
       "kind": "research",
       "title": "Visuo-Tactile World Models for Dexterous Manipulation: From Simulation Benchmarks to Real-World Skin Sensing",
@@ -830,7 +865,8 @@
           2,
           4
         ]
-      ]
+      ],
+      "visual": "thesis"
     },
     {
       "id": "research-csf",
