@@ -55,5 +55,5 @@ def transformer_footer():
  <g>{tokens}</g><g transform="translate(-160 0)">{attention}</g><g transform="translate(-600 0)">{output}</g>
  <g class="compact-labels"><text x="40" y="145">TOKENS</text><text x="180" y="145">ATTENTION</text><text x="315" y="145">CONTEXT</text></g>
  </svg></div>
- <div class="footer-meta"><span>© 2026 Jahnavi Yelamanchi</span><a href="#top">Back to the map ↑</a></div>
+ <div class="footer-meta"><span>© 2026 Jahnavi Yelamanchi</span><a href="index.html#top">Back to the map ↑</a></div>
  </footer>'''

@@ -1197,3 +1197,79 @@ footer {
   .transformer-heading {font-size:9px}
   .contact h2 {font-size:clamp(21px,6.4vw,42px);letter-spacing:-1px}
 }
+
+/* Two pages, one shared sidebar. Reserve the preview so hovering never shifts the map. */
+.map-page .atlas-section {
+  height:100dvh;
+  padding:24px 0 10px;
+  min-height:620px;
+}
+.map-page .atlas-heading {flex-shrink:0;margin-bottom:18px}
+.map-page .map-stage {flex:1 1 0;height:auto;min-height:180px;max-height:none}
+.map-page .map-caption>span {max-width:none}
+.map-page .map-caption {flex-shrink:0;min-height:32px;padding:7px 0}
+.map-page .year-filter {flex-shrink:0}
+.map-page .evidence {flex:0 0 170px;min-height:0;padding:16px 0;overflow:hidden}
+.map-page .evidence[hidden] {display:flex!important;visibility:hidden}
+.map-page .evidence-copy {min-width:0}
+.map-page .evidence h2,.map-page .evidence p {
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+.map-page .evidence h2 {-webkit-line-clamp:1}
+.map-page .map-footnote {flex-shrink:0;align-items:center;padding:12px 0 0;min-height:35px}
+.work-page main {padding-top:30px}
+.work-page #projects {padding-top:0}
+.work-page #projects .section-heading {border-top:0;padding-top:0}
+.section-heading h1 {font:32px/1.15 Georgia,serif;letter-spacing:-.8px}
+@media(min-width:901px) and (max-height:760px) {
+  .map-page .atlas-section {padding-top:16px;padding-bottom:8px}
+  .map-page .atlas-heading {margin-bottom:10px}
+  .map-page .atlas-heading h1 {font-size:32px}
+  .map-page .map-filters button {min-height:34px;padding:7px 0}
+  .map-page .map-stage {min-height:150px}
+  .map-page .evidence {flex-basis:150px;padding:12px 0}
+  .map-page .year-filter button {min-height:32px;padding:7px 0}
+  .map-page .map-footnote {padding-top:8px;min-height:28px}
+}
+@media(max-width:900px) {
+  .sidebar {padding:16px 24px;grid-template-columns:1fr auto;gap:12px}
+  .identity {grid-column:1;grid-row:1}
+  .name {font-size:23px;letter-spacing:-1px}
+  .name br {display:none}
+  .name {word-spacing:2px}
+  .role,.intro,.intro-secondary {display:none}
+  .sidebar-bottom {grid-column:2;grid-row:1;align-self:center}
+  .social-links {display:none}
+  .site-nav {grid-column:1/-1;grid-row:2;margin:0;gap:10px 20px}
+  .site-nav a {font-size:11px;padding:3px 0}
+  .map-page .page-shell {height:100dvh;min-height:720px;display:grid;grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  .map-page main {min-height:0}
+  .map-page .atlas-section {height:100%;min-height:0;padding-top:18px}
+  .map-page .atlas-heading {margin-bottom:12px}
+  .map-page .atlas-heading h1 {font-size:30px}
+  .map-page .map-stage {min-height:170px;margin-top:8px}
+  .map-page .map-filters {flex-wrap:nowrap;gap:16px;font-size:9px}
+  .map-page .map-filters button {min-height:32px;padding:7px 0}
+  .map-page .map-caption {font-size:8px;min-height:28px;padding:6px 0}
+  .map-page .evidence {flex-basis:158px;padding:12px 0;gap:12px}
+  .map-page .evidence h2 {font-size:20px}
+  .map-page .evidence p {font-size:11px}
+  .map-page .map-footnote {font-size:8px;padding-top:8px;min-height:30px}
+  .map-page .map-footnote>span {max-width:none}
+}
+@media(max-width:540px) {
+  .sidebar {padding:14px 20px}
+  .name {font-size:19px}
+  .site-nav {gap:8px 15px}
+  .site-nav a {font-size:10px}
+  .map-page .atlas-heading h1 {font-size:26px}
+  .map-page .map-filters {gap:13px;font-size:8px}
+  .map-page .map-label {font-size:8px}
+  .map-page .evidence-meta {font-size:8px}
+  .map-page .evidence-controls {min-width:58px}
+  .map-page .evidence-controls button {width:27px;height:27px}
+  .map-page .map-footnote {gap:8px;font-size:8px}
+}

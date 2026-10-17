@@ -1,7 +1,8 @@
 # Jahnavi Yelamanchi — portfolio
 
-A static, two-column portfolio with a WebGL map connecting experience, projects,
-research, open-source contributions, and education.
+A static, two-page portfolio with one shared sidebar: `index.html` contains the
+viewport-sized WebGL map; `work.html` contains the scrollable projects, experience,
+open source, research, about, and contact sections.
 
 ## Preview
 
@@ -9,17 +10,18 @@ research, open-source contributions, and education.
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:4173. No package installation or API keys are required.
+Open http://127.0.0.1:4173/ for the map, or http://127.0.0.1:4173/work.html for the work page. No package installation or API keys are required.
 
 ## Edit content
 
 - `data/portfolio.json` contains the 27 records, links, dates, and map coordinates.
 - `scripts/visuals.py` supplies research diagrams and the pixel transformer footer.
 - `js/footer-motion.js` handles footer pause, reduced motion, and offscreen behavior.
-- `scripts/build.py` generates `index.html`, including all static listings and embedded map data.
+- `scripts/build.py` generates `index.html` and `work.html`, sharing the sidebar and embedded record data.
 - `css/style.css` contains light/dark tokens and responsive layouts.
 - `js/work-map.js` draws the wireframe in WebGL, with an SVG fallback.
-- `js/portfolio.js` handles map filtering, navigation, and theme preference.
+- `js/portfolio.js` handles shared navigation and theme preference.
+- `js/map-controller.js` handles map filtering, selection, and incoming record links.
 - `js/previews.js` provides desktop link previews from local content.
 
 After editing content or the page template:
@@ -28,7 +30,7 @@ After editing content or the page template:
 python3 scripts/build.py
 ```
 
-Commit the generated `index.html` alongside the source. GitHub Pages serves the
+Commit both generated HTML pages alongside the source. GitHub Pages serves the
 site directly; there is no build dependency at deployment time.
 
 ## Map conventions
@@ -82,3 +84,9 @@ Shankar; custom implementation and interaction model.
 The October 2026 arXiv entry and retrieval chart use the paper abstract at
 https://arxiv.org/abs/2610.17549. The thesis illustration and transformer footer
 are conceptual schematics, not experimental figures or live model traces.
+
+Map links open `work.html#record-id`. Locate links return to
+`index.html?record=record-id#top` with that record pinned. Legacy single-page
+record and section hashes redirect to the work page. Desktop map layout reserves
+space for its work preview and keeps the help line visible; very short windows
+can scroll instead of clipping content.
